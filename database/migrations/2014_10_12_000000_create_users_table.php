@@ -16,6 +16,7 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
             $table->string('profile_picture')->nullable();
+            $table->string('slug')->unique();
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
@@ -26,7 +27,7 @@ class CreateUsersTable extends Migration
              * 3 - Cozinha de porções
              * 4 - Cozinha de sucos
              * 5 - Admin
-             *
+             * See config files to override
              * */
             $table->rememberToken();
             $table->timestamps();

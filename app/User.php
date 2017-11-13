@@ -2,13 +2,41 @@
 
 namespace App;
 
+use App\Contracts\Slugable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
+use App\Traits\CreateSlug;
 
-class User extends Authenticatable implements JWTSubject
+/**
+ * App\User
+ *
+ * @property int $id
+ * @property string|null $profile_picture
+ * @property string $slug
+ * @property string $name
+ * @property string $email
+ * @property string $password
+ * @property int $role
+ * @property string|null $remember_token
+ * @property \Carbon\Carbon|null $created_at
+ * @property \Carbon\Carbon|null $updated_at
+ * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\User wherePassword($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereProfilePicture($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereRememberToken($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereRole($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereUpdatedAt($value)
+ * @mixin \Eloquent
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereSlug($value)
+ */
+class User extends Authenticatable implements JWTSubject, Slugable
 {
-    use Notifiable;
+    use Notifiable, CreateSlug;
 
     /**
      * The attributes that are mass assignable.
@@ -16,7 +44,12 @@ class User extends Authenticatable implements JWTSubject
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'role', 'profile_picture'
+        'name',
+        'email',
+        'password',
+        'role',
+        'profile_picture',
+        'slug'
     ];
 
     /**
@@ -35,7 +68,7 @@ class User extends Authenticatable implements JWTSubject
      */
     public function getJWTIdentifier()
     {
-        return $this->getKey();
+        return $this->slug;
     }
 
     /**
@@ -46,5 +79,18 @@ class User extends Authenticatable implements JWTSubject
     public function getJWTCustomClaims()
     {
         return [];
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
+    /**
+     *  Slug attribute for querying
+     */
+    public function getSlugSearch()
+    {
+        return 'name';
     }
 }

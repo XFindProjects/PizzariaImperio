@@ -17,6 +17,7 @@ class RouteServiceProvider extends ServiceProvider
     public function map()
     {
         $this->mapApiRoutes();
+        $this->mapWebRoutes();
     }
 
     public function mapApiRoutes()
@@ -24,6 +25,16 @@ class RouteServiceProvider extends ServiceProvider
         Route::prefix('api/acl')
             ->middleware('api')
             ->namespace($this->namespace)
+            ->name('Acl::')
             ->group(__DIR__ . '/../routes/api.php');
+    }
+
+    public function mapWebRoutes()
+    {
+        Route::prefix('/admin/acl')
+            ->middleware('web')
+            ->namespace($this->namespace)
+            ->name('Acl::')
+            ->group(__DIR__. '/../routes/web.php');
     }
 }
