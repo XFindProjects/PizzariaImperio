@@ -1,13 +1,20 @@
 <?php
+/**
+ * Copyright (c) XFind - 2017. Todos os direitos reservados, copia é crime!
+ * Criado por: Reginaldo Junior
+ * Email: reginaldo.junior696@gmail.com
+ * Data: 14/11/2017
+ * Hora: 3:1:56
+ */
 
-namespace Acl\Providers;
+namespace Jwt\Providers;
 
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Route;
 
 class RouteServiceProvider extends ServiceProvider
 {
-    protected $namespace = 'Acl\Http\Controllers';
+    protected $namespace = 'Jwt\Http\Controllers';
 
     public function boot()
     {
@@ -22,19 +29,19 @@ class RouteServiceProvider extends ServiceProvider
 
     public function mapApiRoutes()
     {
-        Route::prefix('api/acl')
-            ->middleware('api')
+        Route::prefix('api/jwt')
+            ->middleware(['api', 'auth:api'])
             ->namespace($this->namespace)
-            ->name('Acl::')
+            ->name('Jwt::')
             ->group(__DIR__ . '/../routes/api.php');
     }
 
     public function mapWebRoutes()
     {
-        Route::prefix('/admin/acl')
+        Route::prefix('/admin/jwt')
             ->middleware('web')
             ->namespace($this->namespace)
-            ->name('Acl::')
+            ->name('Jwt::')
             ->group(__DIR__. '/../routes/web.php');
     }
 }

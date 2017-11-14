@@ -28,7 +28,8 @@
         ],
         "psr-4": {
             "App\\": "app/",
-            "Acl\\": "domains/Acl/"
+            "Acl\\": "domains/Acl/",
+            "Jwt\\": "domains/Jwt"
         }
     },
     "autoload-dev": {

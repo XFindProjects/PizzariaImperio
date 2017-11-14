@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Acl\Traits\Roleable;
 use App\Contracts\Slugable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -36,7 +37,7 @@ use App\Traits\CreateSlug;
  */
 class User extends Authenticatable implements JWTSubject, Slugable
 {
-    use Notifiable, CreateSlug;
+    use Notifiable, CreateSlug, Roleable;
 
     /**
      * The attributes that are mass assignable.
@@ -68,7 +69,7 @@ class User extends Authenticatable implements JWTSubject, Slugable
      */
     public function getJWTIdentifier()
     {
-        return $this->slug;
+        return $this->id;
     }
 
     /**

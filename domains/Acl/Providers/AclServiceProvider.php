@@ -1,6 +1,6 @@
 <?php
 
-namespace Acl;
+namespace Acl\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

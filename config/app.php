@@ -171,7 +171,9 @@ return [
         /*
          * Domains Service Providers...
          */
-        Acl\AclServiceProvider::class,
+        Acl\Providers\AclServiceProvider::class,
+        Jwt\Providers\JwtServiceProvider::class,
+
 
         /*
          * Application Service Providers...
