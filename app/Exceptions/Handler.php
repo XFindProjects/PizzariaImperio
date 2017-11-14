@@ -9,11 +9,10 @@ use Illuminate\Auth\AuthenticationException;
 use Illuminate\Http\Request;
 use Jwt\Handlers\JwtExceptionHandler;
 use Tymon\JWTAuth\Exceptions\JWTException;
+use Abstem\RestHandler\Exceptions\ExceptionHandler;
 
 class Handler extends ExceptionHandler
 {
-    use RenderHandler;
-
     /**
      * A list of the exception types that are not reported.
      *

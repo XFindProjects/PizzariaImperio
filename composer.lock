@@ -4,8 +4,51 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "9d02adfd66c6baca612db38aa4ea66b4",
+    "content-hash": "3e595d83aa6957dd9568e6ffbc2345ba",
     "packages": [
+        {
+            "name": "abstem/rest-handler",
+            "version": "0.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Abstem/RestHandler.git",
+                "reference": "3cafaf2802c0f4d5f75156b37dd0478c2647b763"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Abstem/RestHandler/zipball/3cafaf2802c0f4d5f75156b37dd0478c2647b763",
+                "reference": "3cafaf2802c0f4d5f75156b37dd0478c2647b763",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0"
+            },
+            "type": "project",
+            "autoload": {
+                "psr-4": {
+                    "Abstem\\RestHandler\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Reginaldo Junior",
+                    "email": "reginaldo.junior696@gmail.com"
+                }
+            ],
+            "description": "A Laravel handler for custom exception on rest requests.",
+            "keywords": [
+                "abstem",
+                "api",
+                "laravel",
+                "rest",
+                "restful"
+            ],
+            "time": "2017-11-14T21:29:28+00:00"
+        },
         {
             "name": "dnoegel/php-xdg-base-dir",
             "version": "0.1",

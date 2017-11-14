@@ -68,6 +68,7 @@ abstract class TestCase extends BaseTestCase
         if ($this->token) {
             $headers['Authorization'] = "Bearer " . $this->token;
         }
+        $headers['X-Requested-With'] = 'XMLHttpRequest';
         return $headers;
     }
 }
