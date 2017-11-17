@@ -1,6 +1,13 @@
 <?php
+/**
+ * Copyright (c) XFind - 2017. Todos os direitos reservados.
+ * Criado por: Reginaldo Junior
+ * Email: reginaldo.junior696@gmail.com
+ * Data: 17/11/2017
+ * Hora: 12:38:34
+ */
 
-namespace Tests\Feature;
+namespace Tests\Feature\Acl;
 
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Tests\TestCase;
@@ -117,7 +124,7 @@ class UpdateUsersTest extends TestCase
             'role' => $this->user->role
         ];
         //  When it tries to hit the update endpoint
-        $res = $this->patchJson($this->user->update_path, $attributes, $this->generateAuthHeaders())
+        $this->patchJson($this->user->update_path, $attributes, $this->generateAuthHeaders())
         ->assertStatus(200)
         ->assertSee($attributes['name']);
 

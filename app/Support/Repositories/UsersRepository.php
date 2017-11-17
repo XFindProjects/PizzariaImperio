@@ -25,9 +25,18 @@ class UsersRepository
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
-            'role' => $data['role'],
-            'slug' => $data['name']
+            'role' => $data['role']
         ]);
+    }
+
+
+    /**
+     * @param User $user
+     * @return bool|null
+     */
+    public function delete(User $user)
+    {
+        return $user->delete();
     }
 
 
@@ -44,7 +53,7 @@ class UsersRepository
                     $user[$field] != $value;
             });
 
-        foreach(['name', 'role'] as $field) {
+        foreach (['name', 'role'] as $field) {
             if ($payload->has($field)) {
                 $user[$field] = $payload[$field];
             }
@@ -61,8 +70,25 @@ class UsersRepository
         return $user;
     }
 
+    /**
+     * @param $slug
+     * @return \Illuminate\Database\Eloquent\Model|null|static
+     */
     public function findBySlug($slug)
     {
         return User::where('slug', $slug)->first();
+    }
+
+    public function getUsers($paginate = true, $perPageOrTake = 20, $orderColumn = 'name', $orderDirection = 'asc')
+    {
+        $query = User::orderBy($orderColumn, $orderDirection);
+
+        if ($paginate) {
+            return $query->paginate($perPageOrTake);
+        } elseif ($perPageOrTake) {
+            return $query->take($perPageOrTake);
+        }
+
+        return $query->get();
     }
 }

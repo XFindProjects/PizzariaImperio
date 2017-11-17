@@ -4,6 +4,7 @@ namespace App;
 
 use Acl\Traits\Roleable;
 use App\Contracts\Slugable;
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
@@ -35,9 +36,9 @@ use App\Traits\CreateSlug;
  * @mixin \Eloquent
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereSlug($value)
  */
-class User extends Authenticatable implements JWTSubject, Slugable
+class User extends Authenticatable implements JWTSubject
 {
-    use Notifiable, CreateSlug, Roleable;
+    use Notifiable, Roleable, Sluggable;
 
     /**
      * The attributes that are mass assignable.
@@ -88,10 +89,16 @@ class User extends Authenticatable implements JWTSubject, Slugable
     }
 
     /**
-     *  Slug attribute for querying
+     * Return the sluggable configuration array for this model.
+     *
+     * @return array
      */
-    public function getSlugSearch()
+    public function sluggable(): array
     {
-        return 'name';
+        return [
+            'slug' => [
+                'source' => 'name'
+            ]
+        ];
     }
 }

@@ -34,7 +34,7 @@ class CreateUsersController extends Controller
      * @param array $data
      * @return User
      */
-    public function create(array $data)
+    private function create(array $data)
     {
         return (new UsersRepository())->create($data);
     }

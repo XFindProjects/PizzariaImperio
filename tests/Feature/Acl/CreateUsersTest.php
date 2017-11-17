@@ -1,13 +1,13 @@
 <?php
 /**
- * Copyright (c) XFind - 2017. Todos os direitos reservados, copia é crime!
+ * Copyright (c) XFind - 2017. Todos os direitos reservados.
  * Criado por: Reginaldo Junior
  * Email: reginaldo.junior696@gmail.com
- * Data: 14/11/2017
- * Hora: 3:3:16
+ * Data: 17/11/2017
+ * Hora: 12:38:34
  */
 
-namespace Tests\Feature;
+namespace Tests\Feature\Acl;
 
 use App\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
@@ -75,9 +75,6 @@ class CreateUsersTest extends TestCase
             'role' => config('acl.roles.garcons')
         ]);
 
-        //  Here we get the authorization token
-        $token = $this->token;
-
         //  Send a post request
         $this->createUserJsonEndpoint($this->attributes, $this->generateAuthHeaders())
             //  Check if status is an Authorization error code
@@ -105,9 +102,6 @@ class CreateUsersTest extends TestCase
         $this->signInAndSetToken(null, [
             'role' => config('acl.roles.admin')
         ]);
-
-        //  Here we get the authorization token
-        $token = $this->token;
 
         //  Send a post request
         $this->createUserJsonEndpoint($this->attributes, $this->generateAuthHeaders())
