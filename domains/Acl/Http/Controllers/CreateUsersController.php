@@ -25,17 +25,8 @@ class CreateUsersController extends Controller
      */
     public function store(CreateUsers $request)
     {
-        event(new Registered($user = $this->create($request->all())));
+        event(new Registered($user = (new UsersRepository())->create($request->all())));
 
         return response($user, 200);
-    }
-
-    /**
-     * @param array $data
-     * @return User
-     */
-    private function create(array $data)
-    {
-        return (new UsersRepository())->create($data);
     }
 }

@@ -8,9 +8,9 @@ use App\User;
 
 class UpdateUsersController extends Controller
 {
-    public function index()
+    public function index(User $user)
     {
-        return view('Acl::update');
+        return view('Acl::update', compact('user'));
     }
 
     public function update(UpdateUsers $request, User $user)
