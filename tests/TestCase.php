@@ -9,7 +9,7 @@
 
 namespace Tests;
 
-use App\User;
+use Pizzaria\User;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
 
 abstract class TestCase extends BaseTestCase
@@ -28,7 +28,7 @@ abstract class TestCase extends BaseTestCase
      */
     public function signIn(User $user = null, $overrides = [])
     {
-        $user = $user ?: create('App\User', $overrides);
+        $user = $user ?: create('Pizzaria\User', $overrides);
 
         $this->actingAs($user);
 

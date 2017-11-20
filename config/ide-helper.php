@@ -1,4 +1,11 @@
 <?php
+/**
+ * Copyright (c) XFind - 2017. Todos os direitos reservados.
+ * Criado por: Reginaldo Junior
+ * Email: reginaldo.junior696@gmail.com
+ * Data: 18/11/2017
+ * Hora: 2:6:11
+ */
 
 return array(
 
@@ -64,7 +71,9 @@ return array(
 
     'model_locations' => array(
         'app',
-        'domains/Acl/Models'
+        'domains/Ingredients/Models',
+        'domains/Order/Models',
+        'domains/Pizzas/Models',
     ),
 
 

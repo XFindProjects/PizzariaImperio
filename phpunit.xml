@@ -16,6 +16,22 @@
         <testsuite name="Unit">
             <directory suffix="Test.php">./tests/Unit</directory>
         </testsuite>
+
+        <testsuite name="Acl Feature">
+            <directory suffix="Test.php">./domains/Acl/tests/Feature</directory>
+        </testsuite>
+
+        <testsuite name="Acl Unit">
+            <directory suffix="Test.php">./domains/Acl/tests/Unit</directory>
+        </testsuite>
+
+        <testsuite name="Pizzas Feature">
+            <directory suffix="Test.php">./domains/Pizzas/tests/Feature</directory>
+        </testsuite>
+
+        <testsuite name="Pizzas Unit">
+            <directory suffix="Test.php">./domains/Pizzas/tests/Unit</directory>
+        </testsuite>
     </testsuites>
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">

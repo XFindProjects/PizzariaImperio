@@ -1,4 +1,11 @@
 <?php
+/**
+ * Copyright (c) XFind - 2017. Todos os direitos reservados.
+ * Criado por: Reginaldo Junior
+ * Email: reginaldo.junior696@gmail.com
+ * Data: 18/11/2017
+ * Hora: 2:4:28
+ */
 
 use Faker\Generator as Faker;
 
@@ -13,7 +20,7 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(App\User::class, function (Faker $faker) {
+$factory->define(Pizzaria\User::class, function (Faker $faker) {
     static $password;
 
     $name = $faker->name;

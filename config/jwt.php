@@ -1,12 +1,11 @@
 <?php
 
-/*
- * This file is part of jwt-auth.
- *
- * (c) Sean Tymon <tymon148@gmail.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
+/**
+ * Copyright (c) XFind - 2017. Todos os direitos reservados.
+ * Criado por: Reginaldo Junior
+ * Email: reginaldo.junior696@gmail.com
+ * Data: 18/11/2017
+ * Hora: 2:6:20
  */
 
 return [

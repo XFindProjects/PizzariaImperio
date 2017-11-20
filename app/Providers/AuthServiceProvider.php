@@ -1,6 +1,13 @@
 <?php
+/**
+ * Copyright (c) XFind - 2017. Todos os direitos reservados.
+ * Criado por: Reginaldo Junior
+ * Email: reginaldo.junior696@gmail.com
+ * Data: 18/11/2017
+ * Hora: 2:10:7
+ */
 
-namespace App\Providers;
+namespace Pizzaria\Providers;
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
@@ -13,7 +20,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        'App\User' => 'Acl\Policies\UserPolicy',
+        'Pizzaria\User' => 'Acl\Policies\UserPolicy',
     ];
 
     /**

@@ -2,8 +2,8 @@
 
 namespace Acl\Http\Controllers;
 
-use App\Support\Repositories\UsersRepository;
-use App\User;
+use Pizzaria\Support\Repositories\UsersRepository;
+use Pizzaria\User;
 use Illuminate\Http\Request;
 
 class ReadUsersController extends Controller

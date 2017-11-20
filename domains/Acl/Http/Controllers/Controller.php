@@ -2,7 +2,7 @@
 
 namespace Acl\Http\Controllers;
 
-use App\Http\Controllers\Controller as BaseController;
+use Pizzaria\Http\Controllers\Controller as BaseController;
 
 class Controller extends BaseController
 {

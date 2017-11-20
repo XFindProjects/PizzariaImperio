@@ -1,4 +1,11 @@
 <?php
+/**
+ * Copyright (c) XFind - 2017. Todos os direitos reservados.
+ * Criado por: Reginaldo Junior
+ * Email: reginaldo.junior696@gmail.com
+ * Data: 18/11/2017
+ * Hora: 2:4:20
+ */
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
@@ -16,9 +23,9 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
             $table->string('profile_picture')->nullable();
-            $table->string('slug')->unique();
-            $table->string('name');
-            $table->string('email')->unique();
+            $table->string('slug', 100)->unique();
+            $table->string('name', 60);
+            $table->string('email', 100)->unique();
             $table->string('password');
             $table->unsignedInteger('role')->default(1);
             /*

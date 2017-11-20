@@ -1,15 +1,15 @@
 <?php
 /**
- * Copyright (c) XFind - 2017. Todos os direitos reservados, copia é crime!
+ * Copyright (c) XFind - 2017. Todos os direitos reservados.
  * Criado por: Reginaldo Junior
  * Email: reginaldo.junior696@gmail.com
- * Data: 14/11/2017
- * Hora: 10:47:36
+ * Data: 18/11/2017
+ * Hora: 2:9:47
  */
 
-namespace App\Support\Repositories;
+namespace Pizzaria\Support\Repositories;
 
-use App\User;
+use Pizzaria\User;
 use Illuminate\Support\Facades\Hash;
 
 class UsersRepository

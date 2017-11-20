@@ -1,4 +1,11 @@
 <?php
+/**
+ * Copyright (c) XFind - 2017. Todos os direitos reservados.
+ * Criado por: Reginaldo Junior
+ * Email: reginaldo.junior696@gmail.com
+ * Data: 18/11/2017
+ * Hora: 2:6:40
+ */
 
 return [
 
@@ -30,7 +37,7 @@ return [
     ],
 
     'stripe' => [
-        'model' => App\User::class,
+        'model' => Pizzaria\User::class,
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],

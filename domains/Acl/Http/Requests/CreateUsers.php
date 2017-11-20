@@ -1,8 +1,15 @@
 <?php
+/**
+ * Copyright (c) XFind - 2017. Todos os direitos reservados.
+ * Criado por: Reginaldo Junior
+ * Email: reginaldo.junior696@gmail.com
+ * Data: 18/11/2017
+ * Hora: 2:13:25
+ */
 
 namespace Acl\Http\Requests;
 
-use App\User;
+use Pizzaria\User;
 use Illuminate\Foundation\Http\FormRequest;
 
 class CreateUsers extends FormRequest

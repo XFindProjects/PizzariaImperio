@@ -1,17 +1,24 @@
 <?php
+/**
+ * Copyright (c) XFind - 2017. Todos os direitos reservados.
+ * Criado por: Reginaldo Junior
+ * Email: reginaldo.junior696@gmail.com
+ * Data: 18/11/2017
+ * Hora: 2:9:15
+ */
 
-namespace App;
+namespace Pizzaria;
 
 use Acl\Traits\Roleable;
-use App\Contracts\Slugable;
+use Pizzaria\Contracts\Slugable;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
-use App\Traits\CreateSlug;
+use Pizzaria\Traits\CreateSlug;
 
 /**
- * App\User
+ * Pizzaria\User
  *
  * @property int $id
  * @property string|null $profile_picture
@@ -24,17 +31,21 @@ use App\Traits\CreateSlug;
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
- * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereEmail($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\User wherePassword($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereProfilePicture($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereRememberToken($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereRole($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Pizzaria\User whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Pizzaria\User whereEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Pizzaria\User whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Pizzaria\User whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Pizzaria\User wherePassword($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Pizzaria\User whereProfilePicture($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Pizzaria\User whereRememberToken($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Pizzaria\User whereRole($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Pizzaria\User whereUpdatedAt($value)
  * @mixin \Eloquent
- * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereSlug($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Pizzaria\User whereSlug($value)
+ * @property-read mixed $admin_area_path
+ * @property-read mixed $delete_path
+ * @property-read mixed $update_path
+ * @method static \Illuminate\Database\Eloquent\Builder|\Pizzaria\User findSimilarSlugs($attribute, $config, $slug)
  */
 class User extends Authenticatable implements JWTSubject
 {

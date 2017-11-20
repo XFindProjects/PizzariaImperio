@@ -1,10 +1,10 @@
 <?php
 /**
- * Copyright (c) XFind - 2017. Todos os direitos reservados, copia é crime!
+ * Copyright (c) XFind - 2017. Todos os direitos reservados.
  * Criado por: Reginaldo Junior
  * Email: reginaldo.junior696@gmail.com
- * Data: 14/11/2017
- * Hora: 3:1:42
+ * Data: 18/11/2017
+ * Hora: 2:14:6
  */
 
 namespace Jwt\Providers;

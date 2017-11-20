@@ -3,8 +3,8 @@
 namespace Acl\Http\Controllers;
 
 use Acl\Http\Requests\CreateUsers;
-use App\Support\Repositories\UsersRepository;
-use App\User;
+use Pizzaria\Support\Repositories\UsersRepository;
+use Pizzaria\User;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;

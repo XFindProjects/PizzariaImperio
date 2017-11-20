@@ -1,4 +1,11 @@
 <?php
+/**
+ * Copyright (c) XFind - 2017. Todos os direitos reservados.
+ * Criado por: Reginaldo Junior
+ * Email: reginaldo.junior696@gmail.com
+ * Data: 18/11/2017
+ * Hora: 2:5:38
+ */
 
 return [
 
@@ -173,17 +180,18 @@ return [
          */
         Acl\Providers\AclServiceProvider::class,
         Jwt\Providers\JwtServiceProvider::class,
-
+        Pizzas\Providers\PizzasServiceProvider::class,
+        Ingredients\Providers\IngredientsServiceProvider::class,
+        Order\Providers\OrderServiceProvider::class,
 
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
-
+        Pizzaria\Providers\AppServiceProvider::class,
+        Pizzaria\Providers\AuthServiceProvider::class,
+        // Pizzaria\Providers\BroadcastServiceProvider::class,
+        Pizzaria\Providers\EventServiceProvider::class,
+        Pizzaria\Providers\RouteServiceProvider::class,
     ],
 
     /*

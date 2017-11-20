@@ -1,10 +1,17 @@
 <?php
+/**
+ * Copyright (c) XFind - 2017. Todos os direitos reservados.
+ * Criado por: Reginaldo Junior
+ * Email: reginaldo.junior696@gmail.com
+ * Data: 18/11/2017
+ * Hora: 2:13:23
+ */
 
 namespace Acl\Http\Controllers;
 
 use Acl\Http\Requests\UpdateUsers;
-use App\Support\Repositories\UsersRepository;
-use App\User;
+use Pizzaria\Support\Repositories\UsersRepository;
+use Pizzaria\User;
 
 class UpdateUsersController extends Controller
 {

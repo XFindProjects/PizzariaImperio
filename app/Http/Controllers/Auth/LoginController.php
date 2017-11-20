@@ -1,9 +1,17 @@
 <?php
+/**
+ * Copyright (c) XFind - 2017. Todos os direitos reservados.
+ * Criado por: Reginaldo Junior
+ * Email: reginaldo.junior696@gmail.com
+ * Data: 18/11/2017
+ * Hora: 2:10:52
+ */
 
-namespace App\Http\Controllers\Auth;
+namespace Pizzaria\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
+use Pizzaria\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -34,5 +42,10 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    protected function authenticated(Request $request, $user)
+    {
+        return redirect($user->admin_area_path);
     }
 }

@@ -1,8 +1,15 @@
 <?php
+/**
+ * Copyright (c) XFind - 2017. Todos os direitos reservados.
+ * Criado por: Reginaldo Junior
+ * Email: reginaldo.junior696@gmail.com
+ * Data: 18/11/2017
+ * Hora: 2:11:10
+ */
 
-namespace App\Exceptions;
+namespace Pizzaria\Exceptions;
 
-use App\Handlers\AuthorizationHandler;
+use Pizzaria\Handlers\AuthorizationHandler;
 use Exception;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Auth\AuthenticationException;
