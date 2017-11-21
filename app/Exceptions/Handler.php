@@ -14,8 +14,6 @@ use Exception;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Http\Request;
-use Jwt\Handlers\JwtExceptionHandler;
-use Tymon\JWTAuth\Exceptions\JWTException;
 use Abstem\RestHandler\Exceptions\ExceptionHandler;
 
 class Handler extends ExceptionHandler

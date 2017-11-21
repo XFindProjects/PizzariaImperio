@@ -12,7 +12,6 @@
         "fideloper/proxy": "~3.3",
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
-        "mbezhanov/faker-provider-collection": "^1.0",
         "renatomarinho/laravel-page-speed": "^1.8",
         "tymon/jwt-auth": "dev-develop"
     },
@@ -33,9 +32,11 @@
             "Pizzaria\\": "app/",
             "Acl\\": "domains/Acl/",
             "Jwt\\": "domains/Jwt",
-            "Pizzas\\": "domains/Pizzas",
-            "Ingredients\\": "domains/Ingredients",
-            "Order\\": "domains/Order"
+            "Pizza\\": "domains/Pizza",
+            "Ingredient\\": "domains/Ingredient",
+            "Order\\": "domains/Order",
+            "Category\\": "domains/Category",
+            "Size\\": "domains/Size"
         }
     },
     "autoload-dev": {

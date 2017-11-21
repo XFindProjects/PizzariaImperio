@@ -20,7 +20,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'Pizzaria Império'),
 
     /*
     |--------------------------------------------------------------------------
@@ -72,7 +72,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'America/Sao_Paulo',
 
     /*
     |--------------------------------------------------------------------------
@@ -85,7 +85,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'pt-BR',
 
     /*
     |--------------------------------------------------------------------------
@@ -180,9 +180,11 @@ return [
          */
         Acl\Providers\AclServiceProvider::class,
         Jwt\Providers\JwtServiceProvider::class,
-        Pizzas\Providers\PizzasServiceProvider::class,
-        Ingredients\Providers\IngredientsServiceProvider::class,
+        Category\Providers\CategoryServiceProvider::class,
+        Pizza\Providers\PizzasServiceProvider::class,
+        Ingredient\Providers\IngredientsServiceProvider::class,
         Order\Providers\OrderServiceProvider::class,
+        Size\Providers\SizeServiceProvider::class,
 
         /*
          * Application Service Providers...

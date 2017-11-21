@@ -9,46 +9,30 @@
 
 namespace Order\Models;
 
+use Category\Models\Category;
 use Illuminate\Database\Eloquent\Model;
-use Pizzas\Models\Pizza;
+use Pizza\Models\Pizza;
+
 
 /**
  * Order\Models\OrderItem
  *
- * @property int $id
- * @property int $orderable_id
- * @property string $orderable_type
- * @property int $paid
- * @property float $price
- * @property \Carbon\Carbon|null $created_at
- * @property \Carbon\Carbon|null $updated_at
- * @property int $order_id
- * @property-read \Illuminate\Database\Eloquent\Model|\Eloquent $items
- * @property-read \Order\Models\Order $order
- * @method static \Illuminate\Database\Eloquent\Builder|\Order\Models\OrderItem whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Order\Models\OrderItem whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Order\Models\OrderItem whereOrderId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Order\Models\OrderItem whereOrderableId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Order\Models\OrderItem whereOrderableType($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Order\Models\OrderItem wherePaid($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Order\Models\OrderItem wherePrice($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Order\Models\OrderItem whereUpdatedAt($value)
- * @mixin \Eloquent
+ * @property-read \Category\Models\Category $category
  * @property-read \Illuminate\Database\Eloquent\Collection|\Order\Models\OrderItemObservation[] $observations
+ * @property-read \Order\Models\Order $order
+ * @mixin \Eloquent
  */
 class OrderItem extends Model
 {
     protected $fillable = [
-      'orderable_id',
-      'orderable_type',
+      'category_id',
       'paid',
-      'price',
       'order_id'
     ];
 
-    public function items()
+    public function category()
     {
-        return $this->morphTo();
+        return $this->belongsTo(Category::class);
     }
 
     public function order()
@@ -59,5 +43,10 @@ class OrderItem extends Model
     public function observations()
     {
         return $this->hasMany(OrderItemObservation::class);
+    }
+
+    public function pizzas()
+    {
+        return $this->morphedByMany(Pizza::class, 'flavorable');
     }
 }

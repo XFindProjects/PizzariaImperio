@@ -71,9 +71,10 @@ return array(
 
     'model_locations' => array(
         'app',
-        'domains/Ingredients/Models',
+        'domains/Ingredient/Models',
         'domains/Order/Models',
-        'domains/Pizzas/Models',
+        'domains/Pizza/Models',
+        'domains/Category/Models',
     ),
 
 

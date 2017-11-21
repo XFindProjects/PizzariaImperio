@@ -31,18 +31,10 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Order extends Model
 {
-    protected $appends = [
-        'total'
-    ];
 
     public function items()
     {
         return $this->hasMany(OrderItem::class);
-    }
-
-    public function getTotalAttribute()
-    {
-        return $this->items->sum('price');
     }
 
     public function observations()
