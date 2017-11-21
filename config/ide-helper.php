@@ -75,6 +75,8 @@ return array(
         'domains/Order/Models',
         'domains/Pizza/Models',
         'domains/Category/Models',
+        'domains/Size/Models',
+        'domains/Table/Models',
     ),
 
 

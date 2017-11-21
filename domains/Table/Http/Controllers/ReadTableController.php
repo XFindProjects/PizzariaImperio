@@ -15,6 +15,8 @@ class ReadTableController extends Controller
 {
     public function read()
     {
+        $this->authorize('view', Table::class);
+
         $tables = $this->tableRepository->get();
 
         return response($tables);
@@ -22,6 +24,8 @@ class ReadTableController extends Controller
 
     public function orders(Table $table)
     {
+        $this->authorize('viewOrders', $table);
+
         $orders = $this->tableRepository->orders($table);
 
         return response($orders);

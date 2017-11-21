@@ -71,4 +71,22 @@ abstract class TestCase extends BaseTestCase
         $headers['X-Requested-With'] = 'XMLHttpRequest';
         return $headers;
     }
+
+    protected function generatePaginationJsonStructure()
+    {
+        return [
+            'current_page',
+            'data' => [],
+            'first_page_url',
+            'from',
+            'last_page',
+            'last_page_url',
+            'next_page_url',
+            'path',
+            'per_page',
+            'prev_page_url',
+            'to',
+            'total'
+        ];
+    }
 }

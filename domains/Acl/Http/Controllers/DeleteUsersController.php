@@ -24,6 +24,8 @@ class DeleteUsersController extends Controller
 
         (new UsersRepository)->delete($user);
 
-        return response('ok');
+        return response([
+            'message' => __('Acl::respones.user-deleted')
+        ]);
     }
 }

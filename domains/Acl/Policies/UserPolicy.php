@@ -24,7 +24,7 @@ class UserPolicy
      */
     public function view(User $user)
     {
-        return true;
+        return $this->admin($user);
     }
 
     /**

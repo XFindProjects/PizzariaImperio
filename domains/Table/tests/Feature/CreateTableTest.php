@@ -33,9 +33,9 @@ class CreateTableTest extends TestCase
      */
     public function test_authenticated_users_with_the_wrong_role_cannot_create_tables()
     {
-        $this->signInAndSetToken(create(User::class, [
+        $this->signInAndSetToken(null, [
             'role' => config('acl.roles.garcons')
-        ]));
+        ]);
 
         $this->postJsonEndpoint([], $this->generateAuthHeaders())
             ->assertStatus(403)
@@ -65,7 +65,7 @@ class CreateTableTest extends TestCase
      * @param array $headers
      * @return \Illuminate\Foundation\Testing\TestResponse
      */
-    public function postJsonEndpoint($data = [], $headers = [])
+    private function postJsonEndpoint($data = [], $headers = [])
     {
         return $this->postJson(Table::createPath(), $data, $headers);
     }

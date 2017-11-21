@@ -19,7 +19,7 @@ trait Tableable
         return route('Table::read-tables.orders', $this);
     }
 
-    public function getDeletePath()
+    public function getDeletePathAttribute()
     {
         return route('Table::delete-tables.delete', $this);
     }

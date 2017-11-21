@@ -28,6 +28,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\Order\Models\Order whereTable($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Order\Models\Order whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property int $table_id
+ * @method static \Illuminate\Database\Eloquent\Builder|\Order\Models\Order whereTableId($value)
  */
 class Order extends Model
 {

@@ -31,19 +31,34 @@ class ReadUsersTest extends TestCase
     }
 
     /**
-     *  Test if authenticated users can read another users
+     *  Test if authenticated admin users can read another users
      */
-    public function test_authenticated_users_can_read_all_users()
+    public function test_authenticated_users_with_the_admin_role_can_read_all_users()
     {
         $this->signInAndSetToken(null, [
-            'role' => config('acl.roles.garcons')
+            'role' => config('acl.roles.admin')
         ]);
 
         $user = create('Pizzaria\User');
 
         $this->getUsersJsonEndpoint($this->generateAuthHeaders())
             ->assertStatus(200)
-            ->assertSee($user->slug);
+            ->assertSee($user->slug)
+            ->assertJsonStructure($this->generatePaginationJsonStructure());
+    }
+
+    /**
+     *  Test if authenticated users with a role witch is not admin cannot read another users
+     */
+    public function test_authenticated_users_without_the_admin_cannot_read_users()
+    {
+        $this->signInAndSetToken(null, [
+            'role' => config('acl.roles.garcons')
+        ]);
+
+        $this->getUsersJsonEndpoint($this->generateAuthHeaders())
+            ->assertStatus(403)
+            ->assertSee('Unauthorized');
     }
 
     /**

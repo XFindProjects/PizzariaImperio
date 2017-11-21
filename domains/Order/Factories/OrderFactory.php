@@ -11,7 +11,9 @@ use Faker\Generator as Faker;
 
 $factory->define(\Order\Models\Order::class, function (Faker $faker) {
     return [
-        'table' => random_int(1, 50),
+        'table_id' => function() {
+            return factory(\Table\Models\Table::class)->create()->id;
+        },
         'observations' => $faker->sentence(),
         'closed' => false
     ];

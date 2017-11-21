@@ -63,7 +63,10 @@ class DeleteUsersTest extends TestCase
 
         $this->deleteUsersJsonEndpoint($user, $this->generateAuthHeaders())
             ->assertStatus(200)
-            ->assertSee('ok');
+            ->assertSee('message')
+            ->assertJsonFragment([
+                'message' => __('Acl::respones.user-deleted')
+            ]);
 
         $this->assertDatabaseMissing('users', $user->toArray());
     }

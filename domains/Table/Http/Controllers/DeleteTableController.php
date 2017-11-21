@@ -15,8 +15,12 @@ class DeleteTableController extends Controller
 {
     public function destroy(Table $table)
     {
+        $this->authorize('delete', $table);
+
         $this->tableRepository->delete($table);
 
-        return response('ok');
+        return response([
+            'message' => __('Table::responses.table-deleted')
+        ]);
     }
 }

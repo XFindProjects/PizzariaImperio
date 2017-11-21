@@ -29,6 +29,10 @@ use Order\Traits\Flavorable;
  * @method static \Illuminate\Database\Eloquent\Builder|\Pizza\Models\Pizza whereSlug($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Pizza\Models\Pizza whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property int $category_id
+ * @property-read \Category\Models\Category $category
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Order\Models\OrderItem[] $order_items
+ * @method static \Illuminate\Database\Eloquent\Builder|\Pizza\Models\Pizza whereCategoryId($value)
  */
 class Pizza extends Model
 {

@@ -18,5 +18,36 @@ class ReadTableTest extends TestCase
 {
     use DatabaseMigrations;
 
+    /**
+     * Test if unauthenticated users cannot hit the read tables endpoint
+     */
+    public function test_unauthenticated_users_cannot_hit_the_read_tables_endpoint()
+    {
+        $this->readTableJsonEndpoint()
+            ->assertStatus(401)
+            ->assertSee('Unauthenticated');
+    }
 
+    /**
+     *  Test if authenticated users with any role can read tables
+     */
+    public function test_authenticated_users_can_read_tables()
+    {
+        $this->signInAndSetToken();
+
+        $table = create(Table::class);
+
+        $this->readTableJsonEndpoint($this->generateAuthHeaders())
+            ->assertStatus(200)
+            ->assertJsonStructure($this->generatePaginationJsonStructure());
+    }
+
+    /**
+     * @param array $headers
+     * @return \Illuminate\Foundation\Testing\TestResponse
+     */
+    private function readTableJsonEndpoint($headers = [])
+    {
+        return $this->getJson(Table::readPath(), $headers);
+    }
 }

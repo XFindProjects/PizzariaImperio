@@ -12,6 +12,29 @@ namespace Size\Models;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Size\Models\Size
+ *
+ * @property int $id
+ * @property string $name
+ * @property string $slug
+ * @property int $sizeable_id
+ * @property string $sizeable_type
+ * @property float $price
+ * @property \Carbon\Carbon|null $created_at
+ * @property \Carbon\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Model|\Eloquent $sizeable
+ * @method static \Illuminate\Database\Eloquent\Builder|\Size\Models\Size findSimilarSlugs($attribute, $config, $slug)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Size\Models\Size whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Size\Models\Size whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Size\Models\Size whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Size\Models\Size wherePrice($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Size\Models\Size whereSizeableId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Size\Models\Size whereSizeableType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Size\Models\Size whereSlug($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Size\Models\Size whereUpdatedAt($value)
+ * @mixin \Eloquent
+ */
 class Size extends Model
 {
     use Sluggable;
