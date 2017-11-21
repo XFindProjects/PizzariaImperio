@@ -185,6 +185,7 @@ return [
         Ingredient\Providers\IngredientsServiceProvider::class,
         Order\Providers\OrderServiceProvider::class,
         Size\Providers\SizeServiceProvider::class,
+        Table\Providers\TableServiceProvider::class,
 
         /*
          * Application Service Providers...

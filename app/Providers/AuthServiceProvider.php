@@ -21,6 +21,7 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected $policies = [
         'Pizzaria\User' => 'Acl\Policies\UserPolicy',
+        'Table\Models\Table' => 'Table\Policies\TablePolicy'
     ];
 
     /**

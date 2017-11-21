@@ -22,10 +22,15 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('table');
+            $table->unsignedInteger('table_id');
             $table->text('observations')->nullable();
             $table->boolean('closed')->default(0);
             $table->timestamps();
+            $table->foreign('table_id')
+                ->references('id')
+                ->on('table')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
         });
     }
 

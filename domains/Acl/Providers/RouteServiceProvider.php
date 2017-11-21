@@ -30,7 +30,7 @@ class RouteServiceProvider extends ServiceProvider
     public function mapApiRoutes()
     {
         Route::prefix('api/acl')
-            ->middleware('api')
+            ->middleware(['api', 'auth:api'])
             ->namespace($this->namespace)
             ->name('Acl::')
             ->group(__DIR__ . '/../routes/api.php');

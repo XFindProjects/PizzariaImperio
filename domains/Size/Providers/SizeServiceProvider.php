@@ -9,6 +9,7 @@
 
 namespace Size\Providers;
 
+use Illuminate\Database\Eloquent\Factory;
 use Illuminate\Support\ServiceProvider;
 
 class SizeServiceProvider extends ServiceProvider
@@ -31,5 +32,6 @@ class SizeServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->register(RouteServiceProvider::class);
+        $this->app->make(Factory::class)->load(__DIR__ . '/../Factories');
     }
 }

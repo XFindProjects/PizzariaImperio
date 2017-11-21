@@ -8,7 +8,7 @@
  */
 
 /*
- | Jwt Message Lang File
+ | Order Message Lang File
  |
  | Contains All messages used in resources
  |

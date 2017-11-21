@@ -3,24 +3,24 @@
  * Copyright (c) XFind - 2017. Todos os direitos reservados.
  * Criado por: Reginaldo Junior
  * Email: reginaldo.junior696@gmail.com
- * Data: 20/11/2017
- * Hora: 23:1:47
+ * Data: 21/11/2017
+ * Hora: 10:30:34
  */
 
-namespace Category\Providers;
+namespace Table\Providers;
 
 use Illuminate\Database\Eloquent\Factory;
 use Illuminate\Support\ServiceProvider;
 
-class CategoryServiceProvider extends ServiceProvider
+class TableServiceProvider extends ServiceProvider
 {
     public function boot()
     {
         $this->loadMigrationsFrom(__DIR__ . '/../Migrations');
-        $this->loadTranslationsFrom(__DIR__ . '/../Resources/lang', 'Category');
+        $this->loadTranslationsFrom(__DIR__ . '/../Resources/lang', 'Table');
         $this->publishes([
-            __DIR__ . '/../Resources/lang' => resource_path('lang/vendor/Category'),
-        ], 'category');
+            __DIR__ . '/../Resources/lang' => resource_path('lang/vendor/Table'),
+        ], 'table');
 
         if ($this->app->runningInConsole()) {
             $this->commands([

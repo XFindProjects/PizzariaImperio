@@ -11,6 +11,7 @@ namespace Acl\Traits;
 
 trait Roleable
 {
+
     public static function createPath()
     {
         return route('Acl::create-users.store');

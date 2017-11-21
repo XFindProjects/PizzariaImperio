@@ -36,7 +36,8 @@
             "Ingredient\\": "domains/Ingredient",
             "Order\\": "domains/Order",
             "Category\\": "domains/Category",
-            "Size\\": "domains/Size"
+            "Size\\": "domains/Size",
+            "Table\\": "domains/Table"
         }
     },
     "autoload-dev": {

@@ -3,18 +3,18 @@
  * Copyright (c) XFind - 2017. Todos os direitos reservados.
  * Criado por: Reginaldo Junior
  * Email: reginaldo.junior696@gmail.com
- * Data: 19/11/2017
- * Hora: 23:59:54
+ * Data: 21/11/2017
+ * Hora: 10:30:52
  */
 
-namespace Order\Providers;
+namespace Table\Providers;
 
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Route;
 
 class RouteServiceProvider extends ServiceProvider
 {
-    protected $namespace = 'Order\Http\Controllers';
+    protected $namespace = 'Table\Http\Controllers';
 
     public function boot()
     {
@@ -29,19 +29,19 @@ class RouteServiceProvider extends ServiceProvider
 
     public function mapApiRoutes()
     {
-        Route::prefix('api/order')
+        Route::prefix('api/table')
             ->middleware(['api', 'auth:api'])
             ->namespace($this->namespace)
-            ->name('Order::')
+            ->name('Table::')
             ->group(__DIR__ . '/../routes/api.php');
     }
 
     public function mapWebRoutes()
     {
-        Route::prefix('/admin/order')
+        Route::prefix('/admin/table')
             ->middleware('web')
             ->namespace($this->namespace)
-            ->name('Order::')
+            ->name('Table::')
             ->group(__DIR__. '/../routes/web.php');
     }
 }

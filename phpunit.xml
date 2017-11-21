@@ -9,11 +9,11 @@
          processIsolation="false"
          stopOnFailure="false">
     <testsuites>
-        <testsuite name="Feature">
+        <testsuite name="Global Feature">
             <directory suffix="Test.php">./tests/Feature</directory>
         </testsuite>
 
-        <testsuite name="Unit">
+        <testsuite name="Global Unit">
             <directory suffix="Test.php">./tests/Unit</directory>
         </testsuite>
 
@@ -25,12 +25,52 @@
             <directory suffix="Test.php">./domains/Acl/tests/Unit</directory>
         </testsuite>
 
-        <testsuite name="Pizzas Feature">
-            <directory suffix="Test.php">./domains/Pizzas/tests/Feature</directory>
+        <testsuite name="Pizza Feature">
+            <directory suffix="Test.php">./domains/Pizza/tests/Feature</directory>
         </testsuite>
 
-        <testsuite name="Pizzas Unit">
-            <directory suffix="Test.php">./domains/Pizzas/tests/Unit</directory>
+        <testsuite name="Pizza Unit">
+            <directory suffix="Test.php">./domains/Pizza/tests/Unit</directory>
+        </testsuite>
+
+        <testsuite name="Category Feature">
+            <directory suffix="Test.php">./domains/Category/tests/Feature</directory>
+        </testsuite>
+
+        <testsuite name="Category Unit">
+            <directory suffix="Test.php">./domains/Category/tests/Unit</directory>
+        </testsuite>
+        
+        <testsuite name="Ingredient Feature">
+            <directory suffix="Test.php">./domains/Ingredient/tests/Feature</directory>
+        </testsuite>
+
+        <testsuite name="Ingredient Unit">
+            <directory suffix="Test.php">./domains/Ingredient/tests/Unit</directory>
+        </testsuite>
+        
+        <testsuite name="Order Feature">
+            <directory suffix="Test.php">./domains/Order/tests/Feature</directory>
+        </testsuite>
+
+        <testsuite name="Order Unit">
+            <directory suffix="Test.php">./domains/Order/tests/Unit</directory>
+        </testsuite>
+        
+        <testsuite name="Size Feature">
+            <directory suffix="Test.php">./domains/Size/tests/Feature</directory>
+        </testsuite>
+
+        <testsuite name="Size Unit">
+            <directory suffix="Test.php">./domains/Size/tests/Unit</directory>
+        </testsuite>
+
+        <testsuite name="Table Feature">
+            <directory suffix="Test.php">./domains/Table/tests/Feature</directory>
+        </testsuite>
+
+        <testsuite name="Table Unit">
+            <directory suffix="Test.php">./domains/Table/tests/Unit</directory>
         </testsuite>
     </testsuites>
     <filter>
