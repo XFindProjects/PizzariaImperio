@@ -27,6 +27,7 @@ class CreateSizesTable extends Migration
             $table->morphs('sizeable');
             $table->decimal('price');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

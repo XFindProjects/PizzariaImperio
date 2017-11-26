@@ -20,6 +20,7 @@ class CreateOrderItemsTable extends Migration
             $table->unsignedInteger('size_id');
             $table->boolean('paid');
             $table->timestamps();
+            $table->softDeletes();
             $table->foreign('order_id')
                 ->references('id')
                 ->on('orders')

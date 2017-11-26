@@ -9,13 +9,11 @@
 
 namespace Pizzaria;
 
-use Acl\Traits\Roleable;
-use Pizzaria\Contracts\Slugable;
+use Acl\Traits\hasRouteMethods;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
-use Pizzaria\Traits\CreateSlug;
 
 /**
  * Pizzaria\User
@@ -49,7 +47,7 @@ use Pizzaria\Traits\CreateSlug;
  */
 class User extends Authenticatable implements JWTSubject
 {
-    use Notifiable, Roleable, Sluggable;
+    use Notifiable, hasRouteMethods, Sluggable;
 
     /**
      * The attributes that are mass assignable.

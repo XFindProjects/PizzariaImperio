@@ -10,6 +10,7 @@
 namespace Table\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Order\Models\Order;
 use Table\Traits\Tableable;
 
@@ -29,7 +30,7 @@ use Table\Traits\Tableable;
  */
 class Table extends Model
 {
-    use Tableable;
+    use Tableable, SoftDeletes;
 
     public function orders()
     {

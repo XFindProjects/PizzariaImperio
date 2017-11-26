@@ -52,7 +52,9 @@ class DeleteTableTest extends TestCase
             'role' => config('acl.roles.admin')
         ]);
 
-        $this->assertDatabaseHas('tables', $this->table->toArray());
+        $this->assertDatabaseHas('tables', [
+            'id' => $this->table->id
+        ]);
 
         $this->deleteTableJsonEndpoint($this->table, $this->generateAuthHeaders())
             ->assertStatus(200)
@@ -61,7 +63,9 @@ class DeleteTableTest extends TestCase
                 'message' => __('Table::responses.table-deleted')
             ]);
 
-        $this->assertDatabaseMissing('tables', $this->table->toArray());
+        $this->assertSoftDeleted('tables', [
+            'id' => $this->table->id
+        ]);
 
     }
 

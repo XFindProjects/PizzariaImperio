@@ -4,16 +4,15 @@
  * Criado por: Reginaldo Junior
  * Email: reginaldo.junior696@gmail.com
  * Data: 18/11/2017
- * Hora: 2:13:27
+ * Hora: 2:13:25
  */
 
 namespace Acl\Http\Requests;
 
-use Pizzaria\Support\Repositories\UsersRepository;
 use Pizzaria\User;
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateUsers extends FormRequest
+class CreateUsersRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,8 +21,7 @@ class UpdateUsers extends FormRequest
      */
     public function authorize()
     {
-        $user = $this->route('user');
-        return auth()->user()->can('update', $user);
+        return auth()->user()->can('create', User::class);
     }
 
     /**
@@ -35,8 +33,8 @@ class UpdateUsers extends FormRequest
     {
         return [
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|exists:users',
-            'password' => 'nullable|string|min:6|confirmed',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:6|confirmed',
             'role' => 'required|integer|between:1,5'
         ];
     }

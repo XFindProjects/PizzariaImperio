@@ -11,6 +11,8 @@ namespace Size\Models;
 
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Size\Traits\hasRouteMethods;
 
 /**
  * Size\Models\Size
@@ -37,7 +39,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Size extends Model
 {
-    use Sluggable;
+    use Sluggable, hasRouteMethods, SoftDeletes;
 
     protected $fillable = [
         'name',

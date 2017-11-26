@@ -11,6 +11,7 @@ namespace Category\Models;
 
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Pizza\Models\Pizza;
 use Size\Traits\Sizeable;
 
@@ -34,7 +35,7 @@ use Size\Traits\Sizeable;
  */
 class Category extends Model
 {
-    use Sluggable, Sizeable;
+    use Sluggable, Sizeable, SoftDeletes;
 
 
     /**

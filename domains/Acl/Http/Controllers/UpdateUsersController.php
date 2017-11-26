@@ -9,7 +9,7 @@
 
 namespace Acl\Http\Controllers;
 
-use Acl\Http\Requests\UpdateUsers;
+use Acl\Http\Requests\UpdateUsersRequest;
 use Pizzaria\Support\Repositories\UsersRepository;
 use Pizzaria\User;
 
@@ -20,9 +20,9 @@ class UpdateUsersController extends Controller
         return view('Acl::update', compact('user'));
     }
 
-    public function update(UpdateUsers $request, User $user)
+    public function update(UpdateUsersRequest $request, User $user)
     {
-        $user = (new UsersRepository)->update($user, $request->all());
+        $user = $this->userRepository->update($user, $request->all());
 
         return response($user);
     }

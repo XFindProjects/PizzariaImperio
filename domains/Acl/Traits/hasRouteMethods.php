@@ -9,7 +9,7 @@
 
 namespace Acl\Traits;
 
-trait Roleable
+trait hasRouteMethods
 {
 
     public static function createPath()
@@ -44,6 +44,8 @@ trait Roleable
             case 4:
                 return '/admin/sucos';
             case 5:
+                return '/admin';
+            default:
                 return '/admin';
         }
     }

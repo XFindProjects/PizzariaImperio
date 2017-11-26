@@ -9,7 +9,7 @@
 
 namespace Acl\Http\Controllers;
 
-use Acl\Http\Requests\CreateUsers;
+use Acl\Http\Requests\CreateSizeRequest;
 use Pizzaria\Support\Repositories\UsersRepository;
 use Pizzaria\User;
 use Illuminate\Auth\Events\Registered;
@@ -22,7 +22,7 @@ class DeleteUsersController extends Controller
     {
         $this->authorize('delete', $user);
 
-        (new UsersRepository)->delete($user);
+        $this->userRepository->delete($user);
 
         return response([
             'message' => __('Acl::respones.user-deleted')

@@ -11,6 +11,7 @@ namespace Ingredient\Models;
 
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Pizza\Models\Pizza;
 
 /**
@@ -31,7 +32,7 @@ use Pizza\Models\Pizza;
  */
 class Ingredient extends Model
 {
-    use Sluggable;
+    use Sluggable, SoftDeletes;
 
     public function pizzas()
     {

@@ -15,7 +15,7 @@ Route::post('/', 'CreateTableController@store')
 Route::get('/', 'ReadTableController@read')
     ->name('read-tables.read');
 
-Route::get('/mesage-{table}/orders', 'ReadTableController@orders')
+Route::get('/mesa-{table}/orders', 'ReadTableController@orders')
     ->name('read-tables.orders');
 
 Route::delete('/mesa-{table}', 'DeleteTableController@destroy')

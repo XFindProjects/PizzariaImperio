@@ -12,7 +12,7 @@ class ReadUsersController extends Controller
     {
         $this->authorize('view', User::class);
 
-        $users = (new UsersRepository)->getUsers();
+        $users = $this->userRepository->getUsers();
 
         if ($request->ajax()) {
             return response($users);

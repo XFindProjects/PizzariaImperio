@@ -28,6 +28,7 @@ class CreatePizzasTable extends Migration
             $table->string('image');
             $table->text('description');
             $table->timestamps();
+            $table->softDeletes();
             $table->foreign('category_id')
                 ->references('id')
                 ->on('categories')

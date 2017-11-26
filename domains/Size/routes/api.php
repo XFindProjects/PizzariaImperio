@@ -9,3 +9,14 @@
 
 use Illuminate\Support\Facades\Route;
 
+Route::post('/', 'CreateSizeController@store')
+    ->name('create-sizes.store');
+
+Route::get('/', 'ReadSizeController@read')
+    ->name('read-sizes.read');
+
+Route::patch('/{size}', 'UpdateSizeController@update')
+    ->name('update-sizes.update');
+
+Route::delete('/{size}', 'DeleteSizeController@destroy')
+    ->name('delete-sizes.delete');

@@ -10,8 +10,14 @@
 namespace Size\Http\Controllers;
 
 use Pizzaria\Http\Controllers\Controller as BaseController;
+use Size\Support\Repositories\SizeRepository;
 
 class Controller extends BaseController
 {
+    protected $sizeRepository;
 
+    public function __construct(SizeRepository $sizeRepository)
+    {
+        $this->sizeRepository = $sizeRepository;
+    }
 }

@@ -2,7 +2,7 @@
 
 namespace Acl\Http\Controllers;
 
-use Acl\Http\Requests\CreateUsers;
+use Acl\Http\Requests\CreateUsersRequest;
 use Pizzaria\Support\Repositories\UsersRepository;
 use Pizzaria\User;
 use Illuminate\Auth\Events\Registered;
@@ -20,12 +20,12 @@ class CreateUsersController extends Controller
     }
 
     /**
-     * @param CreateUsers $request
+     * @param CreateUsersRequest $request
      * @return \Illuminate\Contracts\Routing\ResponseFactory|\Symfony\Component\HttpFoundation\Response
      */
-    public function store(CreateUsers $request)
+    public function store(CreateUsersRequest $request)
     {
-        event(new Registered($user = (new UsersRepository())->create($request->all())));
+        event(new Registered($user = $this->userRepository->create($request->all())));
 
         return response($user, 200);
     }

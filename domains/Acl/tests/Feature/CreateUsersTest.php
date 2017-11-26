@@ -116,6 +116,67 @@ class CreateUsersTest extends TestCase
         $this->assertDatabaseHas('users', ['email' => $this->attributes['email']]);
     }
 
+    /**
+     *  Test is validation is working
+     *
+     * @return void
+     */
+    public function test_authenticated_users_with_the_admin_role_can_create_users_with_the_right_attributes()
+    {
+        //  Given we have a signed in user with the admin role
+        //  Then the api should create the user and return the json data
+
+        //  Here we sign in the user with the admin role
+        $this->signInAndSetToken(null, [
+            'role' => config('acl.roles.admin')
+        ]);
+
+        $test = function ($attributes) {
+            $this->createUserJsonEndpoint($attributes, $this->generateAuthHeaders())
+                ->assertStatus(422)
+                ->assertJsonStructure([
+                    "message",
+                    "errors" => collect($this->attributes)
+                        ->flip()
+                        ->filter(function ($attr) use ($attributes) {
+                            return !collect($attributes)->has($attr) &&
+                                $attr != 'password_confirmation';
+                        })
+                        ->values()
+                        ->toArray()
+                ]);
+        };
+
+        $attributes = [
+            'name' => $this->attributes['name']
+        ];
+
+        //  Send a post request only with name
+        $test($attributes);
+
+
+        $attributes["email"] = $this->attributes['email'];
+        //  Send a post request with name and email
+        $test($attributes);
+
+        $attributes['password'] = $this->attributes['password'];
+        $attributes['password_confirmation'] = $this->attributes['password_confirmation'];
+        //  Send a post request with name,email,password,password_confirmation fields
+        $test($attributes);
+
+        $attributes['role'] = $this->attributes['role'];
+        $this->createUserJsonEndpoint($attributes, $this->generateAuthHeaders())
+            //  Assert status is a ok response
+            ->assertStatus(200)
+            //  Assert the response body contains the user data
+            ->assertSee($this->attributes['email'])
+            //  Assert we don't have a unauthorized error
+            ->assertDontSee('Unauthorized');
+
+        //  Check if user was not added to the database
+        $this->assertDatabaseHas('users', ['email' => $this->attributes['email']]);
+    }
+
 
     /**
      * @param null $attributes

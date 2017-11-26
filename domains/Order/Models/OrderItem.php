@@ -11,6 +11,7 @@ namespace Order\Models;
 
 use Category\Models\Category;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Pizza\Models\Pizza;
 
 
@@ -38,6 +39,8 @@ use Pizza\Models\Pizza;
  */
 class OrderItem extends Model
 {
+    use SoftDeletes;
+    
     protected $fillable = [
       'category_id',
       'paid',
