@@ -49,9 +49,9 @@ class CreateTableTest extends TestCase
      */
     public function test_authenticated_users_with_the_admin_role_can_create_tables()
     {
-        $this->signInAndSetToken(create(User::class, [
+        $this->signInAndSetToken(null, [
             'role' => config('acl.roles.admin')
-        ]));
+        ]);
 
         $this->postJsonEndpoint([], $this->generateAuthHeaders())
             ->assertStatus(200)

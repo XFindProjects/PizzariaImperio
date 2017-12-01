@@ -12,6 +12,7 @@ namespace Ingredient\Models;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Model\Support\Traits\HasFactory;
 use Pizza\Models\Pizza;
 
 /**
@@ -29,10 +30,24 @@ use Pizza\Models\Pizza;
  * @method static \Illuminate\Database\Eloquent\Builder|\Ingredient\Models\Ingredient whereSlug($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Ingredient\Models\Ingredient whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property string|null $deleted_at
+ * @method static bool|null forceDelete()
+ * @method static \Illuminate\Database\Query\Builder|\Ingredient\Models\Ingredient onlyTrashed()
+ * @method static bool|null restore()
+ * @method static \Illuminate\Database\Eloquent\Builder|\Ingredient\Models\Ingredient whereDeletedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\Ingredient\Models\Ingredient withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|\Ingredient\Models\Ingredient withoutTrashed()
  */
 class Ingredient extends Model
 {
-    use Sluggable, SoftDeletes;
+    use Sluggable, HasFactory, SoftDeletes;
+
+    protected $fillable = [
+      'name',
+      'slug',
+      'created_at',
+      'updated_at'
+    ];
 
     public function pizzas()
     {

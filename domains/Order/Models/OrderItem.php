@@ -12,6 +12,7 @@ namespace Order\Models;
 use Category\Models\Category;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Model\Support\Traits\HasFactory;
 use Pizza\Models\Pizza;
 
 
@@ -36,10 +37,17 @@ use Pizza\Models\Pizza;
  * @method static \Illuminate\Database\Eloquent\Builder|\Order\Models\OrderItem wherePaid($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Order\Models\OrderItem whereSizeId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Order\Models\OrderItem whereUpdatedAt($value)
+ * @property string|null $deleted_at
+ * @method static bool|null forceDelete()
+ * @method static \Illuminate\Database\Query\Builder|\Order\Models\OrderItem onlyTrashed()
+ * @method static bool|null restore()
+ * @method static \Illuminate\Database\Eloquent\Builder|\Order\Models\OrderItem whereDeletedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\Order\Models\OrderItem withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|\Order\Models\OrderItem withoutTrashed()
  */
 class OrderItem extends Model
 {
-    use SoftDeletes;
+    use SoftDeletes, HasFactory;
     
     protected $fillable = [
       'category_id',

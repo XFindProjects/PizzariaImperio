@@ -23,7 +23,7 @@ class ReadUsersTest extends TestCase
      */
     public function test_unauthenticated_users_cannot_read_other_users()
     {
-        $user = create('Pizzaria\User');
+        $user = User::generate();
 
         $this->getUsersJsonEndpoint($this->generateAuthHeaders())
             ->assertStatus(401)
@@ -39,7 +39,7 @@ class ReadUsersTest extends TestCase
             'role' => config('acl.roles.admin')
         ]);
 
-        $user = create('Pizzaria\User');
+        $user = User::generate();
 
         $this->getUsersJsonEndpoint($this->generateAuthHeaders())
             ->assertStatus(200)

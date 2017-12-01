@@ -10,9 +10,9 @@
 use Illuminate\Support\Facades\Route;
 
 Route::post('/', 'CreateSizeController@store')
-    ->name('create-sizes.store');
+    ->name('create-sizes.create');
 
-Route::get('/', 'ReadSizeController@read')
+Route::get('/', 'ReadSizeController@index')
     ->name('read-sizes.read');
 
 Route::patch('/{size}', 'UpdateSizeController@update')

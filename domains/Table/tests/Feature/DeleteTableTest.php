@@ -23,7 +23,7 @@ class DeleteTableTest extends TestCase
     protected function setUp()
     {
         parent::setUp();
-        $this->table = create(Table::class);
+        $this->table = Table::generate();
     }
 
     public function test_if_unauthenticated_users_cannot_hit_the_delete_table_endpoint()

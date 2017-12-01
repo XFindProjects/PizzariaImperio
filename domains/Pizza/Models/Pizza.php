@@ -7,6 +7,7 @@ use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 use Ingredient\Models\Ingredient;
 use Ingredient\Traits\Ingredientable;
+use Model\Support\Traits\HasFactory;
 use Order\Traits\Flavorable;
 
 /**
@@ -33,10 +34,12 @@ use Order\Traits\Flavorable;
  * @property-read \Category\Models\Category $category
  * @property-read \Illuminate\Database\Eloquent\Collection|\Order\Models\OrderItem[] $order_items
  * @method static \Illuminate\Database\Eloquent\Builder|\Pizza\Models\Pizza whereCategoryId($value)
+ * @property string|null $deleted_at
+ * @method static \Illuminate\Database\Eloquent\Builder|\Pizza\Models\Pizza whereDeletedAt($value)
  */
 class Pizza extends Model
 {
-    use Sluggable, Categoryable, Flavorable, Ingredientable;
+    use Sluggable, Categoryable, Flavorable, Ingredientable, HasFactory;
 
     protected $fillable = [
         'category_id',

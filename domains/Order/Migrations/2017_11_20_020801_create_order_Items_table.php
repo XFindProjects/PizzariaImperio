@@ -17,7 +17,7 @@ class CreateOrderItemsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('order_id');
             $table->unsignedInteger('category_id');
-            $table->unsignedInteger('size_id');
+            $table->decimal('price');
             $table->boolean('paid');
             $table->timestamps();
             $table->softDeletes();
@@ -29,11 +29,6 @@ class CreateOrderItemsTable extends Migration
             $table->foreign('category_id')
                 ->references('id')
                 ->on('categories')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
-            $table->foreign('size_id')
-                ->references('id')
-                ->on('sizes')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
         });

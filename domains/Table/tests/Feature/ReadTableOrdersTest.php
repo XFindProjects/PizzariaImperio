@@ -24,7 +24,7 @@ class ReadTableOrdersTest extends TestCase
     protected function setUp()
     {
         parent::setUp();
-        $this->table = create(Table::class);
+        $this->table = Table::generate();
     }
 
     public function test_if_unauthenticated_users_cannot_hit_the_read_table_orders_endpoint()
@@ -39,7 +39,7 @@ class ReadTableOrdersTest extends TestCase
     public function test_if_authenticated_users_with_the_wrong_role_cannot_read_table_orders()
     {
         $table = $this->table;
-        $order = create(Order::class, [
+        $order = Order::generate([
             'table_id' => $table->id
         ]);
         $this->signInAndSetToken(null, [
@@ -54,7 +54,7 @@ class ReadTableOrdersTest extends TestCase
     public function test_if_authenticated_users_with_admin_role_can_read_table_orders()
     {
         $table = $this->table;
-        $order = create(Order::class, [
+        $order = Order::generate([
             'table_id' => $table->id
         ]);
         $this->signInAndSetToken(null, [

@@ -25,7 +25,7 @@ class DeleteUsersController extends Controller
         $this->userRepository->delete($user);
 
         return response([
-            'message' => __('Acl::respones.user-deleted')
+            'message' => __('Acl::responses.user-deleted')
         ]);
     }
 }

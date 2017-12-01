@@ -12,6 +12,7 @@ namespace Size\Models;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Model\Support\Traits\HasFactory;
 use Size\Traits\hasRouteMethods;
 
 /**
@@ -36,10 +37,19 @@ use Size\Traits\hasRouteMethods;
  * @method static \Illuminate\Database\Eloquent\Builder|\Size\Models\Size whereSlug($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Size\Models\Size whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property string|null $deleted_at
+ * @property-read mixed $delete_path
+ * @property-read mixed $update_path
+ * @method static bool|null forceDelete()
+ * @method static \Illuminate\Database\Query\Builder|\Size\Models\Size onlyTrashed()
+ * @method static bool|null restore()
+ * @method static \Illuminate\Database\Eloquent\Builder|\Size\Models\Size whereDeletedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\Size\Models\Size withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|\Size\Models\Size withoutTrashed()
  */
 class Size extends Model
 {
-    use Sluggable, hasRouteMethods, SoftDeletes;
+    use Sluggable, hasRouteMethods, SoftDeletes, HasFactory;
 
     protected $fillable = [
         'name',

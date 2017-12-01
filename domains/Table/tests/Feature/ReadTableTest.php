@@ -35,7 +35,7 @@ class ReadTableTest extends TestCase
     {
         $this->signInAndSetToken();
 
-        $table = create(Table::class);
+        $table = Table::generate();
 
         $this->readTableJsonEndpoint($this->generateAuthHeaders())
             ->assertStatus(200)

@@ -18,12 +18,21 @@ class DeleteUsersTest extends TestCase
 {
     use DatabaseMigrations;
 
+    private $user;
+
+    protected function setUp()
+    {
+        parent::setUp();
+
+        $this->user = User::generate();
+    }
+
     /**
      *  Test if unauthenticated users cannot hit the delete eendpoint
      */
     public function test_unauthenticated_users_cannot_hit_the_delete_users_endpoint()
     {
-        $user = create('Pizzaria\User');
+        $user = User::generate();
 
         $this->deleteUsersJsonEndpoint($user, $this->generateAuthHeaders())
             ->assertStatus(401)
@@ -35,17 +44,16 @@ class DeleteUsersTest extends TestCase
      */
     public function test_authenticated_users_without_the_admin_role_cannot_delete_users()
     {
-        $user = create('Pizzaria\User');
 
         $this->signInAndSetToken(null, [
            'role' => config('acl.roles.garcons')
         ]);
 
-        $this->deleteUsersJsonEndpoint($user, $this->generateAuthHeaders())
+        $this->deleteUsersJsonEndpoint($this->user, $this->generateAuthHeaders())
             ->assertStatus(403)
             ->assertSee('Unauthorized');
 
-        $this->assertDatabaseHas('users', $user->toArray());
+        $this->assertDatabaseHas('users', $this->user->toArray());
     }
 
     /**
@@ -53,22 +61,21 @@ class DeleteUsersTest extends TestCase
      */
     public function test_authenticated_users_with_the_admin_role_can_delete_users()
     {
-        $user = create('Pizzaria\User');
 
-        $this->assertDatabaseHas('users', $user->toArray());
+        $this->assertDatabaseHas('users', $this->user->toArray());
 
         $this->signInAndSetToken(null, [
            'role' => config('acl.roles.admin')
         ]);
 
-        $this->deleteUsersJsonEndpoint($user, $this->generateAuthHeaders())
+        $this->deleteUsersJsonEndpoint($this->user, $this->generateAuthHeaders())
             ->assertStatus(200)
             ->assertSee('message')
             ->assertJsonFragment([
-                'message' => __('Acl::respones.user-deleted')
+                'message' => __('Acl::responses.user-deleted')
             ]);
 
-        $this->assertDatabaseMissing('users', $user->toArray());
+        $this->assertDatabaseMissing('users', $this->user->toArray());
     }
 
     /**

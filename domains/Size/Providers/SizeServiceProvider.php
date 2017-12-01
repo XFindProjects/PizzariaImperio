@@ -18,6 +18,7 @@ class SizeServiceProvider extends ServiceProvider
     {
         $this->loadMigrationsFrom(__DIR__ . '/../Migrations');
         $this->loadTranslationsFrom(__DIR__ . '/../Resources/lang', 'Size');
+        $this->loadViewsFrom(__DIR__.'/../Resources/views', 'Size');
         $this->publishes([
             __DIR__ . '/../Resources/lang' => resource_path('lang/vendor/Size'),
         ], 'size');

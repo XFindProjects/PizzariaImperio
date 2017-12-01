@@ -11,6 +11,7 @@ namespace Table\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Model\Support\Traits\HasFactory;
 use Order\Models\Order;
 use Table\Traits\Tableable;
 
@@ -27,10 +28,17 @@ use Table\Traits\Tableable;
  * @method static \Illuminate\Database\Eloquent\Builder|\Table\Models\Table whereUpdatedAt($value)
  * @mixin \Eloquent
  * @property-read mixed $delete_path
+ * @property string|null $deleted_at
+ * @method static bool|null forceDelete()
+ * @method static \Illuminate\Database\Query\Builder|\Table\Models\Table onlyTrashed()
+ * @method static bool|null restore()
+ * @method static \Illuminate\Database\Eloquent\Builder|\Table\Models\Table whereDeletedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\Table\Models\Table withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|\Table\Models\Table withoutTrashed()
  */
 class Table extends Model
 {
-    use Tableable, SoftDeletes;
+    use Tableable, SoftDeletes, HasFactory;
 
     public function orders()
     {

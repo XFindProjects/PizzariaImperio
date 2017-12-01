@@ -9,7 +9,20 @@
 
 namespace Size\Http\Controllers;
 
+use Size\Models\Size;
+
 class ReadSizeController extends Controller
 {
-    
+    public function index()
+    {
+        $this->authorize('view', Size::class);
+
+        $sizes = $this->sizeRepository->getSizes();
+
+        if (request()->ajax()) {
+            return $sizes;
+        }
+
+        return view('Size::read', compact('sizes'));
+    }
 }

@@ -9,7 +9,15 @@
 
 namespace Size\Http\Controllers;
 
+use Size\Http\Requests\UpdateSizeRequest;
+use Size\Models\Size;
+
 class UpdateSizeController extends Controller
 {
+    public function update(Size $size, UpdateSizeRequest $request)
+    {
+        $size = $this->sizeRepository->update($size, $request->all());
 
+        return response($size);
+    }
 }

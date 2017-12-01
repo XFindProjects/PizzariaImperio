@@ -9,7 +9,18 @@
 
 namespace Size\Http\Controllers;
 
+use Size\Models\Size;
+
 class DeleteSizeController extends Controller
 {
+    public function destroy(Size $size)
+    {
+        $this->authorize('delete', $size);
 
+        $this->sizeRepository->delete($size);
+
+        return response([
+           'message' => __('Size::responses.size-deleted')
+        ]);
+    }
 }

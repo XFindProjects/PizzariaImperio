@@ -12,7 +12,7 @@ use Faker\Generator as Faker;
 $factory->define(Pizza\Models\Pizza::class, function (Faker $faker) {
     return [
         'category_id' => function () {
-            return \Category\Models\Category::where('slug', 'pizza')->first()->id;
+            return \Category\Models\Category::whereSlug('pizza')->firstOrCreate(['name' => 'pizza'])->id;
         },
         'flavor' => $faker->slavor,
         'image' => basename($faker->image(public_path('storage/images'), 640, 480, 'food')),

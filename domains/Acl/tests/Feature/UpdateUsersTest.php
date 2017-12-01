@@ -10,6 +10,7 @@
 namespace Acl\Tests\Feature;
 
 use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Pizzaria\User;
 use Tests\TestCase;
 
 class UpdateUsersTest extends TestCase
@@ -27,7 +28,7 @@ class UpdateUsersTest extends TestCase
     protected function setUp()
     {
         parent::setUp();
-        $this->user = create('Pizzaria\User');
+        $this->user = User::generate();
     }
 
     /**

@@ -10,6 +10,7 @@
 namespace Order\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Model\Support\Traits\HasFactory;
 
 /**
  * Order\Models\Order
@@ -33,6 +34,15 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Order extends Model
 {
+    use HasFactory;
+
+    protected $fillable = [
+      'table_id',
+      'observations',
+      'closed',
+      'created_at',
+      'updated_at'
+    ];
 
     public function items()
     {

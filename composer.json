@@ -7,6 +7,7 @@
     "require": {
         "php": ">=7.0.0",
         "abstem/rest-handler": "^0.0.1",
+        "appstract/laravel-blade-directives": "^0.7.0",
         "cviebrock/eloquent-sluggable": "4.3",
         "doctrine/dbal": "^2.6",
         "fideloper/proxy": "~3.3",
@@ -37,7 +38,8 @@
             "Order\\": "domains/Order",
             "Category\\": "domains/Category",
             "Size\\": "domains/Size",
-            "Table\\": "domains/Table"
+            "Table\\": "domains/Table",
+            "Model\\": "domains/Model"
         }
     },
     "autoload-dev": {

@@ -13,6 +13,7 @@ use Acl\Traits\hasRouteMethods;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Model\Support\Traits\HasFactory;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 
 /**
@@ -47,7 +48,7 @@ use Tymon\JWTAuth\Contracts\JWTSubject;
  */
 class User extends Authenticatable implements JWTSubject
 {
-    use Notifiable, hasRouteMethods, Sluggable;
+    use Notifiable, hasRouteMethods, Sluggable, HasFactory;
 
     /**
      * The attributes that are mass assignable.

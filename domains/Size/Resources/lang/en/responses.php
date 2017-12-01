@@ -15,5 +15,5 @@
 */
 
 return [
-    'hello' =>  'Hello World'
+    'size-deleted' =>  'The size was successfully deleted!'
 ];

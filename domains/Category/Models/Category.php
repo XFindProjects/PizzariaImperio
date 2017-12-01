@@ -12,6 +12,7 @@ namespace Category\Models;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Model\Support\Traits\HasFactory;
 use Pizza\Models\Pizza;
 use Size\Traits\Sizeable;
 
@@ -32,11 +33,24 @@ use Size\Traits\Sizeable;
  * @method static \Illuminate\Database\Eloquent\Builder|\Category\Models\Category whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Category\Models\Category whereSlug($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Category\Models\Category whereUpdatedAt($value)
+ * @property string|null $deleted_at
+ * @method static bool|null forceDelete()
+ * @method static \Illuminate\Database\Query\Builder|\Category\Models\Category onlyTrashed()
+ * @method static bool|null restore()
+ * @method static \Illuminate\Database\Eloquent\Builder|\Category\Models\Category whereDeletedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\Category\Models\Category withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|\Category\Models\Category withoutTrashed()
  */
 class Category extends Model
 {
-    use Sluggable, Sizeable, SoftDeletes;
+    use Sluggable, HasFactory, Sizeable, SoftDeletes;
 
+    protected $fillable = [
+        'name',
+        'slug',
+        'created_at',
+        'updated_at'
+    ];
 
     /**
      * Return the sluggable configuration array for this model.

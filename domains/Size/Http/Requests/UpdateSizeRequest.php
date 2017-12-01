@@ -4,14 +4,14 @@
  * Criado por: Reginaldo Junior
  * Email: reginaldo.junior696@gmail.com
  * Data: 25/11/2017
- * Hora: 23:23:1
+ * Hora: 23:22:45
  */
 
 namespace Size\Http\Requests;
 
-use Pizzaria\Support\Repositories\UsersRepository;
 use Pizzaria\User;
 use Illuminate\Foundation\Http\FormRequest;
+use Size\Models\Size;
 
 class UpdateSizeRequest extends FormRequest
 {
@@ -22,8 +22,8 @@ class UpdateSizeRequest extends FormRequest
      */
     public function authorize()
     {
-        $user = $this->route('user');
-        return auth()->user()->can('update', $user);
+        $size = $this->route('size');
+        return auth()->user()->can('update', $size);
     }
 
     /**
@@ -35,9 +35,9 @@ class UpdateSizeRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|exists:users',
-            'password' => 'nullable|string|min:6|confirmed',
-            'role' => 'required|integer|between:1,5'
+            'price' => 'required|numeric',
+            'sizeable_id' => 'required|integer',
+            'sizeable_type' => 'required|string'
         ];
     }
 }
