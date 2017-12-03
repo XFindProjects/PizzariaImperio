@@ -19,4 +19,7 @@ Route::group(['prefix' => 'admin'], function() {
         Route::post('login', 'LoginController@login');
         Route::post('logout', 'LoginController@logout')->name('logout');
     });
+    Route::get('/pizzas', function() {
+       return JWTAuth::fromUser(auth()->user());
+    });
 });

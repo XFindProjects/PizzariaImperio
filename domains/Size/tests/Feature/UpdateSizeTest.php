@@ -81,6 +81,7 @@ class UpdateSizeTest extends TestCase
         $this->signInAndSetToken(null, [
             'role' => config('acl.roles.admin')
         ]);
+        $this->withExceptionHandling();
 
         $test = function ($attributes) {
             $this->updatePathJsonEndpoint($attributes, $this->generateAuthHeaders())
@@ -132,6 +133,6 @@ class UpdateSizeTest extends TestCase
      */
     private function updatePathJsonEndpoint($data = [], $headers = [])
     {
-        return $this->patchJson($this->size->update_path, $data, $headers);
+        return $this->patchJson($this->size->updatePath(), $data, $headers);
     }
 }
