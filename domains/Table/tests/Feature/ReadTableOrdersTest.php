@@ -68,6 +68,6 @@ class ReadTableOrdersTest extends TestCase
 
     private function readTableOrdersJsonEndpoint(Table $table, $headers = [])
     {
-        return $this->getJson($table->read_orders_path, $headers);
+        return $this->getJson($table->ordersPath(), $headers);
     }
 }

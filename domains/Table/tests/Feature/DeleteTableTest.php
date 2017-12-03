@@ -71,6 +71,6 @@ class DeleteTableTest extends TestCase
 
     private function deleteTableJsonEndpoint(Table $table, $headers = [])
     {
-        return $this->deleteJson($table->delete_path, [], $headers);
+        return $this->deleteJson($table->deletePath(), [], $headers);
     }
 }

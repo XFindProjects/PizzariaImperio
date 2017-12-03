@@ -9,7 +9,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/token', 'CreateTokenController@token')->name('get-user.token');
+Route::get('/token', 'CreateTokenController@token')->name('token-users.token');
 Route::get('/', 'ReadUsersController@index')->name('read-users.view');
 Route::get('/usuario/criar', 'CreateUsersController@index')->name('create-user.view');
 Route::get('/{user}/', 'UpdateUsersController@index')->name('update-user.view');

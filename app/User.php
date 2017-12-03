@@ -9,11 +9,12 @@
 
 namespace Pizzaria;
 
-use Acl\Traits\hasRouteMethods;
+use Acl\Traits\BelongsToArea;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Model\Support\Traits\HasFactory;
+use Model\Support\Traits\HasRouteMethods;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 
 /**
@@ -48,7 +49,7 @@ use Tymon\JWTAuth\Contracts\JWTSubject;
  */
 class User extends Authenticatable implements JWTSubject
 {
-    use Notifiable, hasRouteMethods, Sluggable, HasFactory;
+    use Notifiable, HasRouteMethods, Sluggable, HasFactory, BelongsToArea;
 
     /**
      * The attributes that are mass assignable.
@@ -110,5 +111,17 @@ class User extends Authenticatable implements JWTSubject
                 'source' => 'name'
             ]
         ];
+    }
+
+    function routeMethods(): array
+    {
+        return [
+            'token'
+        ];
+    }
+
+    function routeExcludes(): array
+    {
+        return [];
     }
 }

@@ -55,7 +55,7 @@ abstract class TestCase extends BaseTestCase
     private function getTokenEndpoint()
     {
         //  Json request to get the auth token
-        return $this->getJson(route('Acl::get-user.token'))->json();
+        return $this->getJson(User::tokenPath())->json();
     }
 
     /**

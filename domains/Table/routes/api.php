@@ -16,7 +16,7 @@ Route::get('/', 'ReadTableController@read')
     ->name('read-tables.read');
 
 Route::get('/mesa-{table}/orders', 'ReadTableController@orders')
-    ->name('read-tables.orders');
+    ->name('orders-tables.orders');
 
 Route::delete('/mesa-{table}', 'DeleteTableController@destroy')
     ->name('delete-tables.delete');

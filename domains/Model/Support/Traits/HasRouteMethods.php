@@ -1,33 +1,31 @@
 <?php
+/**
+ * Copyright (c) XFind - 2017. Todos os direitos reservados.
+ * Criado por: Reginaldo Junior
+ * Email: reginaldo.junior696@gmail.com
+ * Data: 3/12/2017
+ * Hora: 13:26:44
+ */
 
-namespace Size\Traits;
+namespace Model\Support\Traits;
 
 use Illuminate\Support\Collection;
 
-trait hasRouteMethods
+trait HasRouteMethods
 {
     /**
      * @var array
      */
-    protected $defaultRouteMethods = [
+    public $defaultRouteMethods = [
         'update',
         'delete',
         'create',
         'read'
     ];
 
-    /**
-     * @var array
-     */
-    protected $routeMethods = [
-        'user'
-    ];
+    abstract function routeMethods(): array;
 
-    /**
-     * @var array
-     */
-    private $routeExcludes = [
-    ];
+    abstract function routeExcludes(): array;
 
     /*public static function createPath()
     {
@@ -130,7 +128,6 @@ trait hasRouteMethods
      */
     public function resolve($method, ...$parameters)
     {
-        var_dump(gettype($parameters));
         return route(self::generateRouteName(str_replace('Path', '', $method)), $parameters);
     }
 
@@ -160,7 +157,7 @@ trait hasRouteMethods
     public function allowedRoutes()
     {
         return collect($this->defaultRouteMethods)
-            ->merge($this->routeMethods)
-            ->except($this->routeExcludes);
+            ->merge($this->routeMethods())
+            ->except($this->routeExcludes());
     }
 }

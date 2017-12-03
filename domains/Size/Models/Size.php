@@ -13,7 +13,7 @@ use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Model\Support\Traits\HasFactory;
-use Size\Traits\hasRouteMethods;
+use Model\Support\Traits\HasRouteMethods;
 
 /**
  * Size\Models\Size
@@ -49,7 +49,7 @@ use Size\Traits\hasRouteMethods;
  */
 class Size extends Model
 {
-    use Sluggable, hasRouteMethods, SoftDeletes, HasFactory;
+    use Sluggable, HasRouteMethods, SoftDeletes, HasFactory;
 
     protected $fillable = [
         'name',
@@ -76,5 +76,15 @@ class Size extends Model
                 'source' => 'name'
             ]
         ];
+    }
+
+    function routeMethods(): array
+    {
+        return [];
+    }
+
+    function routeExcludes(): array
+    {
+        return [];
     }
 }

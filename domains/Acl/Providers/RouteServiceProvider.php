@@ -32,7 +32,7 @@ class RouteServiceProvider extends ServiceProvider
         Route::prefix('api/acl')
             ->middleware(['api', 'auth:api'])
             ->namespace($this->namespace)
-            ->name('Acl::')
+            ->name('User::')
             ->group(__DIR__ . '/../routes/api.php');
     }
 
@@ -41,7 +41,7 @@ class RouteServiceProvider extends ServiceProvider
         Route::prefix('/admin/acl')
             ->middleware('web')
             ->namespace($this->namespace)
-            ->name('Acl::')
+            ->name('User::')
             ->group(__DIR__. '/../routes/web.php');
     }
 }

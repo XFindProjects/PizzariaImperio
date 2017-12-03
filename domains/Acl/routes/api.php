@@ -10,7 +10,7 @@
 use Illuminate\Support\Facades\Route;
 
 Route::post('user', 'CreateUsersController@store')
-    ->name('create-users.store');
+    ->name('create-users.create');
 
 Route::patch('user/{user}', 'UpdateUsersController@update')
     ->name('update-users.update');

@@ -12,6 +12,7 @@ namespace Table\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Model\Support\Traits\HasFactory;
+use Model\Support\Traits\HasRouteMethods;
 use Order\Models\Order;
 use Table\Traits\Tableable;
 
@@ -38,10 +39,24 @@ use Table\Traits\Tableable;
  */
 class Table extends Model
 {
-    use Tableable, SoftDeletes, HasFactory;
+    use Tableable, SoftDeletes, HasFactory, HasRouteMethods;
 
     public function orders()
     {
         return $this->hasMany(Order::class);
+    }
+
+    function routeMethods(): array
+    {
+        return [
+            'orders'
+        ];
+    }
+
+    function routeExcludes(): array
+    {
+        return [
+            'update',
+        ];
     }
 }
