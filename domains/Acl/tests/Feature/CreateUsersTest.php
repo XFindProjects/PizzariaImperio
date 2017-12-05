@@ -186,6 +186,6 @@ class CreateUsersTest extends TestCase
     private function createUserJsonEndpoint($attributes = null, $headers = [])
     {
         //  Json request to create users
-        return $this->postJson(User::createPath(), $attributes, $headers);
+        return $this->postJson(User::getPath('create'), $attributes, $headers);
     }
 }

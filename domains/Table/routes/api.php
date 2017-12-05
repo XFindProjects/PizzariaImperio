@@ -10,7 +10,7 @@
 use Illuminate\Support\Facades\Route;
 
 Route::post('/', 'CreateTableController@store')
-    ->name('create-tables.store');
+    ->name('create-tables.create');
 
 Route::get('/', 'ReadTableController@read')
     ->name('read-tables.read');

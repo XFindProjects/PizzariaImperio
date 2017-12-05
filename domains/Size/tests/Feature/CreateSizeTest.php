@@ -130,6 +130,6 @@ class CreateSizeTest extends TestCase
      */
     private function createPathJsonEndpoint($data = [], $headers = [])
     {
-        return $this->postJson(Size::createPath(), $data, $headers);
+        return $this->postJson(Size::getPath('create'), $data, $headers);
     }
 }

@@ -23,8 +23,14 @@ trait HasRouteMethods
         'read'
     ];
 
+    /**
+     * @return array
+     */
     abstract function routeMethods(): array;
 
+    /**
+     * @return array
+     */
     abstract function routeExcludes(): array;
 
     /*public static function createPath()
@@ -63,40 +69,25 @@ trait HasRouteMethods
         return str_slug(str_plural(self::generateNamespace()));
     }
 
-
-    /**
-     * @param $method
-     * @param $parameters
-     * @return mixed
-     */
-    public static function __callStatic($method, $parameters)
+    public static function getPath($method, ...$parameters)
     {
-        if (str_is('*Path', $method)) {
-            $model = new self;
-            return $model->$method(...$parameters);
-        }
-
-        return parent::__callStatic($method, $parameters);
+        return (new self)->path($method, ...$parameters);
     }
 
     /**
      * @param $method
-     * @param $parameters
-     * @return string
+     * @param array ...$parameters
+     * @return null|string
      */
-    public function __call($method, $parameters)
+    public function path($method, ...$parameters)
     {
-        if (str_is('*Path', $method)) {
-            if ($this->allowedPath($method)) {
-                if (!!$this->id) {
-                    return $this->resolve($method, $this, ...$parameters);
-                }
-                return $this->resolve($method, ...$parameters);
+        if ($this->allowedPath($method)) {
+            if (!!$this->id) {
+                return $this->resolve($method, $this, ...$parameters);
             }
-            $this->reject($method);
+            return $this->resolve($method, ...$parameters);
         }
-
-        return parent::__call($method, $parameters);
+        return null;
     }
 
     /**

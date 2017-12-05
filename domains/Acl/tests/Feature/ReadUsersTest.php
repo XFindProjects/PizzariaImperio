@@ -67,6 +67,6 @@ class ReadUsersTest extends TestCase
      */
     protected function getUsersJsonEndpoint($headers = [])
     {
-        return $this->getJson(User::readPath(), $headers);
+        return $this->getJson(User::getPath('read'), $headers);
     }
 }

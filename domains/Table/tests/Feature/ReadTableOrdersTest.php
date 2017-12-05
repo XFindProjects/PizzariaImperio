@@ -7,7 +7,7 @@
  * Hora: 11:56:17
  */
 
-namespace Size\Tests\Feature;
+namespace Table\Tests\Feature;
 
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Order\Models\Order;
@@ -68,6 +68,6 @@ class ReadTableOrdersTest extends TestCase
 
     private function readTableOrdersJsonEndpoint(Table $table, $headers = [])
     {
-        return $this->getJson($table->ordersPath(), $headers);
+        return $this->getJson($table->path('orders'), $headers);
     }
 }

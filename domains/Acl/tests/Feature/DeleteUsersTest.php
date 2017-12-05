@@ -85,6 +85,6 @@ class DeleteUsersTest extends TestCase
      */
     public function deleteUsersJsonEndpoint(User $user, $headers = [])
     {
-        return $this->deleteJson($user->deletePath(), [], $headers);
+        return $this->deleteJson($user->path('delete'), [], $headers);
     }
 }

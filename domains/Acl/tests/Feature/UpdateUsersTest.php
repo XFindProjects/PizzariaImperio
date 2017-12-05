@@ -41,7 +41,7 @@ class UpdateUsersTest extends TestCase
             'name' => 'Jhon Thyson'
         ];
         //  When it tries to hit the update endpoint
-        $this->patchJson($this->user->updatePath(), $attributes, $this->generateAuthHeaders())
+        $this->patchJson($this->user->path('update'), $attributes, $this->generateAuthHeaders())
             //  It should see a response code of 401
             ->assertStatus(401)
             //  Witch means "Unauthenticated action"
@@ -65,7 +65,7 @@ class UpdateUsersTest extends TestCase
             'name' => 'Jhon Thyson'
         ];
         //  When it tries to hit the update endpoint
-        $this->patchJson($this->user->updatePath(), $attributes, $this->generateAuthHeaders())
+        $this->patchJson($this->user->path('update'), $attributes, $this->generateAuthHeaders())
             //  It should see a response code of 403
             ->assertStatus(403)
             //  Witch means "Unauthorized action"
@@ -86,7 +86,7 @@ class UpdateUsersTest extends TestCase
         $attributes = [];
 
         //  Check if has error wen no name and email and role supplied
-        $this->patchJson($this->user->updatePath(), $attributes, $this->generateAuthHeaders())
+        $this->patchJson($this->user->path('update'), $attributes, $this->generateAuthHeaders())
             ->assertSee('name')
             ->assertSee('role')
             ->assertSee('email');
@@ -95,17 +95,17 @@ class UpdateUsersTest extends TestCase
             'name' => 'Jhon Thyson'
         ];
         //  Check if has error wen no email and role supplied
-        $this->patchJson($this->user->updatePath(), $attributes, $this->generateAuthHeaders())
+        $this->patchJson($this->user->path('update'), $attributes, $this->generateAuthHeaders())
             ->assertSee('email')
             ->assertSee('role');
 
         $attributes['email'] = $this->user->email;
         //  Check if has error wen no role supplied
-        $this->patchJson($this->user->updatePath(), $attributes, $this->generateAuthHeaders())
+        $this->patchJson($this->user->path('update'), $attributes, $this->generateAuthHeaders())
             ->assertSee('role');
 
         $attributes['role'] = $this->user->role;
-        $this->patchJson($this->user->updatePath(), $attributes, $this->generateAuthHeaders())
+        $this->patchJson($this->user->path('update'), $attributes, $this->generateAuthHeaders())
             ->assertStatus(200);
     }
 
@@ -125,7 +125,7 @@ class UpdateUsersTest extends TestCase
             'role' => $this->user->role
         ];
         //  When it tries to hit the update endpoint
-        $this->patchJson($this->user->updatePath(), $attributes, $this->generateAuthHeaders())
+        $this->patchJson($this->user->path('update'), $attributes, $this->generateAuthHeaders())
         ->assertStatus(200)
         ->assertSee($attributes['name']);
 

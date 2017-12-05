@@ -7,7 +7,7 @@
  * Hora: 10:48:26
  */
 
-namespace Size\Tests\Feature;
+namespace Table\Tests\Feature;
 
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Pizzaria\User;
@@ -67,6 +67,6 @@ class CreateTableTest extends TestCase
      */
     private function postJsonEndpoint($data = [], $headers = [])
     {
-        return $this->postJson(Table::createPath(), $data, $headers);
+        return $this->postJson(Table::getPath('create'), $data, $headers);
     }
 }

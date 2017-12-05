@@ -133,6 +133,6 @@ class UpdateSizeTest extends TestCase
      */
     private function updatePathJsonEndpoint($data = [], $headers = [])
     {
-        return $this->patchJson($this->size->updatePath(), $data, $headers);
+        return $this->patchJson($this->size->path('update'), $data, $headers);
     }
 }

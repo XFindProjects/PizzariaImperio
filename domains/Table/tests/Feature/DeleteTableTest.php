@@ -7,7 +7,7 @@
  * Hora: 11:56:3
  */
 
-namespace Size\Tests\Feature;
+namespace Table\Tests\Feature;
 
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Pizzaria\User;
@@ -71,6 +71,6 @@ class DeleteTableTest extends TestCase
 
     private function deleteTableJsonEndpoint(Table $table, $headers = [])
     {
-        return $this->deleteJson($table->deletePath(), [], $headers);
+        return $this->deleteJson($table->path('delete'), [], $headers);
     }
 }

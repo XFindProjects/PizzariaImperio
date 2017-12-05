@@ -7,7 +7,7 @@
  * Hora: 11:56:21
  */
 
-namespace Size\Tests\Feature;
+namespace Table\Tests\Feature;
 
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Pizzaria\User;
@@ -48,6 +48,6 @@ class ReadTableTest extends TestCase
      */
     private function readTableJsonEndpoint($headers = [])
     {
-        return $this->getJson(Table::readPath(), $headers);
+        return $this->getJson(Table::getPath('read'), $headers);
     }
 }

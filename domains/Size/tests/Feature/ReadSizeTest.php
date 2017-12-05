@@ -45,6 +45,6 @@ class ReadSizeTest extends TestCase
      */
     private function readPathJsonEndpoint($headers = [])
     {
-        return $this->getJson(Size::readPath(), $headers);
+        return $this->getJson(Size::getPath('read'), $headers);
     }
 }

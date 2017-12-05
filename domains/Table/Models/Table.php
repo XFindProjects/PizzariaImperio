@@ -39,7 +39,7 @@ use Table\Traits\Tableable;
  */
 class Table extends Model
 {
-    use Tableable, SoftDeletes, HasFactory, HasRouteMethods;
+    use SoftDeletes, HasFactory, HasRouteMethods;
 
     public function orders()
     {

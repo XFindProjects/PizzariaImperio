@@ -68,6 +68,6 @@ class DeleteSizeTest extends TestCase
      */
     private function deletePathJsonEndpoint($headers = [])
     {
-        return $this->deleteJson($this->size->deletePath(), [], $headers);
+        return $this->deleteJson($this->size->path('delete'), [], $headers);
     }
 }
