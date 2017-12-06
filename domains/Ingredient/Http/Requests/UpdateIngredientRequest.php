@@ -10,6 +10,7 @@
 namespace Ingredient\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Ingredient\Models\Ingredient;
 
 class UpdateIngredientRequest extends FormRequest
 {
@@ -20,7 +21,7 @@ class UpdateIngredientRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return auth()->user()->can('create', Ingredient::class);
     }
 
     /**
@@ -31,7 +32,7 @@ class UpdateIngredientRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|string'
         ];
     }
 }

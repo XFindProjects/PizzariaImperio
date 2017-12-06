@@ -9,3 +9,14 @@
 
 use Illuminate\Support\Facades\Route;
 
+Route::post('/', 'CreatePizzaController@store')
+    ->name('create-pizzas.create');
+
+Route::get('/', 'ReadPizzaController@index')
+    ->name('read-pizzas.read');
+
+Route::patch('/{pizza}', 'UpdatePizzaController@update')
+    ->name('update-pizzas.update');
+
+Route::delete('/{pizza}', 'DeletePizzaController@destroy')
+    ->name('delete-pizzas.delete');

@@ -2,8 +2,8 @@
 
 namespace Model\Support\Repositories;
 
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Query\Builder;
 
 /**
  * Class BaseRepository
@@ -230,7 +230,7 @@ abstract class BaseRepository
 
     /**
      * @param array $columns
-     * @return \Illuminate\Database\Eloquent\Collection|static[]
+     * @return \Illuminate\Support\Collection
      */
     public function get($columns = ['*'])
     {

@@ -9,36 +9,9 @@
 
 namespace Size\Policies;
 
-use Pizzaria\User;
-use Illuminate\Auth\Access\HandlesAuthorization;
-use Size\Models\Size;
+use Model\Support\Policies\BasePolicy;
 
-class SizePolicy
+class SizePolicy extends BasePolicy
 {
-    use HandlesAuthorization;
 
-    public function view(User $user)
-    {
-        return true;
-    }
-
-    public function create(User $user)
-    {
-        return $this->admin($user);
-    }
-
-    public function update(User $user, Size $size)
-    {
-        return $this->admin($user);
-    }
-
-    public function delete(User $user, Size $size)
-    {
-        return $this->admin($user);
-    }
-
-    protected function admin(User $user)
-    {
-        return $user->role == config('acl.roles.admin');
-    }
 }

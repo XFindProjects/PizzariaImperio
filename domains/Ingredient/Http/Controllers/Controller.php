@@ -9,9 +9,22 @@
 
 namespace Ingredient\Http\Controllers;
 
+use Ingredient\Support\Repositories\IngredientRepository;
 use Pizzaria\Http\Controllers\Controller as BaseController;
 
 class Controller extends BaseController
 {
+    /**
+     * @var IngredientRepository
+     */
+    public $ingredientRepository;
 
+    /**
+     * CreateIngredientController constructor.
+     * @param IngredientRepository $ingredientRepository
+     */
+    public function __construct(IngredientRepository $ingredientRepository)
+    {
+        $this->ingredientRepository = $ingredientRepository;
+    }
 }

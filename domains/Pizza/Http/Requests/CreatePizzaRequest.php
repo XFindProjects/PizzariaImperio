@@ -10,6 +10,7 @@
 namespace Pizza\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Pizza\Models\Pizza;
 
 class CreatePizzaRequest extends FormRequest
 {
@@ -20,7 +21,7 @@ class CreatePizzaRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return auth()->user()->can('create', Pizza::class);
     }
 
     /**
@@ -31,7 +32,9 @@ class CreatePizzaRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'flavor' => 'required|string|max:150',
+            'image' => 'required|image',
+            'description' => 'required|string'
         ];
     }
 }

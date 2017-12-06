@@ -13,6 +13,7 @@ use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Model\Support\Traits\HasFactory;
+use Model\Support\Traits\HasRouteMethods;
 use Pizza\Models\Pizza;
 
 /**
@@ -37,10 +38,11 @@ use Pizza\Models\Pizza;
  * @method static \Illuminate\Database\Eloquent\Builder|\Ingredient\Models\Ingredient whereDeletedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\Ingredient\Models\Ingredient withTrashed()
  * @method static \Illuminate\Database\Query\Builder|\Ingredient\Models\Ingredient withoutTrashed()
+ * @method string path($method)
  */
 class Ingredient extends Model
 {
-    use Sluggable, HasFactory, SoftDeletes;
+    use Sluggable, HasFactory, SoftDeletes, HasRouteMethods;
 
     protected $fillable = [
       'name',
@@ -66,5 +68,21 @@ class Ingredient extends Model
               'source' => 'name'
           ]
         ];
+    }
+
+    /**
+     * @return array
+     */
+    function routeMethods(): array
+    {
+        return [];
+    }
+
+    /**
+     * @return array
+     */
+    function routeExcludes(): array
+    {
+        return [];
     }
 }

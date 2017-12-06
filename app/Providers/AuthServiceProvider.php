@@ -9,7 +9,6 @@
 
 namespace Pizzaria\Providers;
 
-use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
 class AuthServiceProvider extends ServiceProvider
@@ -23,6 +22,8 @@ class AuthServiceProvider extends ServiceProvider
         'Pizzaria\User' => 'Acl\Policies\UserPolicy',
         'Table\Models\Table' => 'Table\Policies\TablePolicy',
         'Size\Models\Size' => 'Size\Policies\SizePolicy',
+        'Pizza\Models\Pizza' => 'Pizza\Policies\PizzaPolicy',
+        'Ingredient\Models\Ingredient' => 'Ingredient\Policies\IngredientPolicy',
     ];
 
     /**

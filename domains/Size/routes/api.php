@@ -20,7 +20,3 @@ Route::patch('/{size}', 'UpdateSizeController@update')
 
 Route::delete('/{size}', 'DeleteSizeController@destroy')
     ->name('delete-sizes.delete');
-
-Route::get('/{size}/{user}', function (\Size\Models\Size $size, \Pizzaria\User $user) {
-    return [$user, $size];
-})->name('user-sizes.user');
