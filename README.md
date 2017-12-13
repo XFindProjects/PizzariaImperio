@@ -4,10 +4,10 @@
 
 # Passos para colocar em produção
 
-* ```php 
+* ```sh
     cp .env.example .env 
     ```
-* ``` 
+* ```sh 
     update database credentials   
     ```
 * ```php 
