@@ -5,23 +5,23 @@
 # Passos para colocar em produção
 
 ```sh
-    cp .env.example .env 
-    ```
+cp .env.example .env 
+```
 ```sh 
-    update database credentials   
-    ```
+update database credentials   
+```
 ```php 
-    php artisan key:generate        
-    ```
+php artisan key:generate        
+```
 ```php 
-    php artisan jwt:secret
-    ```
+php artisan jwt:secret
+```
 ```php 
-    php artisan migrate 
-    ```
+php artisan migrate 
+```
 ```php 
-   php artisan db:seed 
-    ```
+php artisan db:seed 
+```
 ```php 
-   php artisan storage:link 
-    ```
+php artisan storage:link 
+```
