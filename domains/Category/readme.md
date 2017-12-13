@@ -1,7 +1,7 @@
 # Passos para adicionar nova categoria
 
 ```
-Adicionar novo model com nome da categoria
+Adicionar novo registro de categoria com nome da categoria
 ```
 
 ```
