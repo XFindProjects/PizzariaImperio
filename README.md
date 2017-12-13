@@ -4,24 +4,24 @@
 
 # Passos para colocar em produção
 
-* ```sh
+```sh
     cp .env.example .env 
     ```
-* ```sh 
+```sh 
     update database credentials   
     ```
-* ```php 
+```php 
     php artisan key:generate        
     ```
-* ```php 
+```php 
     php artisan jwt:secret
     ```
-* ```php 
+```php 
     php artisan migrate 
     ```
-* ```php 
+```php 
    php artisan db:seed 
     ```
-* ```php 
+```php 
    php artisan storage:link 
     ```
