@@ -113,14 +113,14 @@ class User extends Authenticatable implements JWTSubject
         ];
     }
 
-    function routeMethods(): array
+    public function routeMethods(): array
     {
         return [
             'token'
         ];
     }
 
-    function routeExcludes(): array
+    public function routeExcludes(): array
     {
         return [];
     }

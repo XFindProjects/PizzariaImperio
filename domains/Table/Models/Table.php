@@ -46,14 +46,14 @@ class Table extends Model
         return $this->hasMany(Order::class);
     }
 
-    function routeMethods(): array
+    public function routeMethods(): array
     {
         return [
             'orders'
         ];
     }
 
-    function routeExcludes(): array
+    public function routeExcludes(): array
     {
         return [
             'update',

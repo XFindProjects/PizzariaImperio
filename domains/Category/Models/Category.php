@@ -13,6 +13,7 @@ use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Model\Support\Traits\HasFactory;
+use Model\Support\Traits\HasRouteMethods;
 use Pizza\Models\Pizza;
 use Size\Traits\Sizeable;
 
@@ -43,7 +44,7 @@ use Size\Traits\Sizeable;
  */
 class Category extends Model
 {
-    use Sluggable, HasFactory, Sizeable, SoftDeletes;
+    use Sluggable, HasFactory, Sizeable, SoftDeletes, HasRouteMethods;
 
     protected $fillable = [
         'name',
@@ -69,5 +70,15 @@ class Category extends Model
     public function pizzas()
     {
         return $this->hasMany(Pizza::class);
+    }
+
+   public function routeMethods(): array
+   {
+       return [];
+   }
+
+    public function routeExcludes(): array
+    {
+        return [];
     }
 }

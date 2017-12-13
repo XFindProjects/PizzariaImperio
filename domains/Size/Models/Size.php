@@ -78,12 +78,12 @@ class Size extends Model
         ];
     }
 
-    function routeMethods(): array
+    public function routeMethods(): array
     {
         return [];
     }
 
-    function routeExcludes(): array
+    public function routeExcludes(): array
     {
         return [];
     }

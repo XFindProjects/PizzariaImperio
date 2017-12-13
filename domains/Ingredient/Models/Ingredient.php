@@ -73,7 +73,7 @@ class Ingredient extends Model
     /**
      * @return array
      */
-    function routeMethods(): array
+    public function routeMethods(): array
     {
         return [];
     }
@@ -81,7 +81,7 @@ class Ingredient extends Model
     /**
      * @return array
      */
-    function routeExcludes(): array
+    public function routeExcludes(): array
     {
         return [];
     }

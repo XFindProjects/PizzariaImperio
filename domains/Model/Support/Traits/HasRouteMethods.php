@@ -26,12 +26,12 @@ trait HasRouteMethods
     /**
      * @return array
      */
-    abstract function routeMethods(): array;
+    abstract public function routeMethods(): array;
 
     /**
      * @return array
      */
-    abstract function routeExcludes(): array;
+    abstract public function routeExcludes(): array;
 
     /*public static function createPath()
     {
