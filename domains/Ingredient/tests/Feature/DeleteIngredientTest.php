@@ -54,7 +54,9 @@ class DeleteIngredientTest extends TestCase
             ->assertStatus(200)
             ->assertSee(__('Ingredient::responses.ingredient-deleted'));
 
-        $this->assertSoftDeleted('ingredients', $this->ingredient->toArray());
+        $this->assertSoftDeleted('ingredients', [
+            'slug' => $this->ingredient->slug
+        ]);
     }
 
     public function deleteEndpoint($headers = [])
